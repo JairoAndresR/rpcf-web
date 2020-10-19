@@ -2,7 +2,7 @@ import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 
 export interface User {
     id?: string,
-    name: string,
+    name?: string,
     email: string,
     company_name?: string,
     password: string,
