@@ -4,7 +4,6 @@ export interface User {
     id?: string,
     name?: string,
     email: string,
-    company_name?: string,
     password: string,
     phone?: string,
     token?: string,
