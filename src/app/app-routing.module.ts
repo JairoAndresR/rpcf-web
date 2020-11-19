@@ -8,7 +8,7 @@ const routes: Routes = [
     component: LayoutComponent,
     children:[
       {
-        path: 'account',
+        path: 'accounts',
         loadChildren: () => import('./user/user.module').then(m => m.UserModule)
       }  
     ]
