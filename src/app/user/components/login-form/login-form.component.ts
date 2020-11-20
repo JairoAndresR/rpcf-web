@@ -39,11 +39,8 @@ export class LoginFormComponent implements OnInit {
       const user = this.form.value;
       //this.loginService.loginUser(user)
       console.log(user)
-    /*
-    this.loginService.loginUser(newUser).subscribe(user =>{
-      console.log(user)
-    })*/
-  }
+      this.router.navigate(['./admin'])
+    }
 
   }
 
