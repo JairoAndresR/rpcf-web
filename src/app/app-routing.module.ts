@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { LayoutComponent } from "./layout/layout.component";
+import { AdminLayoutComponent } from "./admin/components/admin-layout/admin-layout.component";
 
 const routes: Routes = [
   {
@@ -12,6 +13,20 @@ const routes: Routes = [
         loadChildren: () => import('./user/user.module').then(m => m.UserModule)
       }  
     ]
+  },
+  {
+    path: "admin",
+    children: [
+      {
+        path: "",
+        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+      }
+    ]
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'admin',
   }
   
 ];

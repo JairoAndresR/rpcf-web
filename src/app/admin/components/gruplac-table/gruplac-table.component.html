@@ -1,0 +1,36 @@
+<h1 class="text-center">Definición de GrupLAC's</h1>
+
+<button mat-raised-button color="primary" routerLink="create" class="new-gruplac-btn">Nuevo</button>
+
+<table mat-table [dataSource]="gruplacs" class="mat-elevation-z8">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- URL Column -->
+    <ng-container matColumnDef="URL">
+      <th mat-header-cell *matHeaderCellDef> URL </th>
+      <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+    </ng-container>
+  
+    <!-- Actions Column -->
+    <ng-container matColumnDef="Acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" class="mx-1">Editar</button>
+        <button mat-raised-button color="warn" class="mx-1" (click)="deleteGruplac(element.id)">Eliminar</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

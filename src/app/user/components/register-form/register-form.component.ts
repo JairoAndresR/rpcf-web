@@ -16,10 +16,10 @@ export class RegisterFormComponent implements OnInit {
     private registerService:RegisterService, 
     private formBuilder: FormBuilder,
     private router: Router
-  ) { }
+  ) { this.buildForm() }
 
   ngOnInit(): void {
-    this.buildForm()
+    
   }
 
   registerUser(event: Event){
