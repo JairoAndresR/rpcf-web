@@ -4,6 +4,7 @@ import { GruplacFormComponent } from "./components/gruplac-form/gruplac-form.com
 import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.component";
 import { ProductsFormComponent } from "./components/products-form/products-form.component";
 import { GruplacTableComponent } from './components/gruplac-table/gruplac-table.component';
+import { GruplacEditComponent } from './components/gruplac-edit/gruplac-edit.component';
 
 const routes: Routes = [
   {
@@ -14,12 +15,16 @@ const routes: Routes = [
         path: 'collector-conf',
         children: [
           {
+            path: 'gruplac',
+            component: GruplacTableComponent
+          },
+          {
             path: 'gruplac/create',
             component: GruplacFormComponent
           },
           {
-            path: 'gruplac',
-            component: GruplacTableComponent
+            path: 'gruplac/edit/:id',
+            component: GruplacEditComponent
           },
           {
             path: 'products',

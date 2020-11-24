@@ -12,9 +12,10 @@ import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.com
 import { GruplacFormComponent } from './components/gruplac-form/gruplac-form.component';
 import { ProductsFormComponent } from './components/products-form/products-form.component';
 import { GruplacTableComponent } from './components/gruplac-table/gruplac-table.component';
+import { GruplacEditComponent } from './components/gruplac-edit/gruplac-edit.component';
 
 @NgModule({
-  declarations: [AdminHeaderComponent, MenuListItemComponent, AdminHomeComponent, AdminLayoutComponent, GruplacFormComponent, ProductsFormComponent, GruplacTableComponent],
+  declarations: [AdminHeaderComponent, MenuListItemComponent, AdminHomeComponent, AdminLayoutComponent, GruplacFormComponent, ProductsFormComponent, GruplacTableComponent, GruplacEditComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

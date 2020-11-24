@@ -32,6 +32,14 @@ export class GruplacService {
     })
   }
 
+  getGruplac(id: string){
+    return this.gruplacs.find(gruplac => gruplac.id===id)
+  }
+
+  updateGruplac(gruplac: Gruplac){
+    console.log(gruplac)
+  }
+
   newGruplac(gruplac: Gruplac){
     this.gruplacs.push(gruplac)
   }
