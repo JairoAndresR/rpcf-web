@@ -1,4 +1,4 @@
 export interface HomeInfo {
-    numGroups: number;
-    numProducts: number;
+    definitions: string[];
+    total: number;
 }

@@ -7,11 +7,9 @@ import { environment } from "./../../../environments/environment";
   providedIn: 'root'
 })
 export class HomeService {
-  //homeInfo: HomeInfo = {numGroups:45, numProducts:156}
   constructor(private http: HttpClient) { }
   
   public getHomeNumbers() {
-    return this.http.get<HomeInfo>(`${environment.url_api}/homeinfo`);
-    //return this.homeInfo
-}
+    return this.http.get<HomeInfo>(`${environment.url_api}/v1/gruplac-definitions`);
+    }
 }

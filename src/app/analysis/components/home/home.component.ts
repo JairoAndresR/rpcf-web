@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   getHomeNumbers(){
     this.homeService.getHomeNumbers().subscribe(homeInfo => {
       this.homeInfo=homeInfo
-      //this.homeInfo=this.homeService.getHomeNumbers()
+      
     });
   }
 
