@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from "../material/material.module";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import { AnalysisRoutingModule } from "../analysis/analysis-routing.module";
 
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from './components/footer/footer.component';
@@ -17,6 +18,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MaterialModule,
     MatToolbarModule,
     MatButtonModule,
+    AnalysisRoutingModule
   ],
   exports: [
     HeaderComponent,
