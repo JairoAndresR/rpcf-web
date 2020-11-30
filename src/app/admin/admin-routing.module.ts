@@ -12,7 +12,7 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     children: [
       {
-        path: 'collector-conf',
+        path: 'collector-configuration',
         children: [
           {
             path: 'gruplac',
