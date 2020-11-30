@@ -9,6 +9,7 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MatTableModule } from '@angular/material/table';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     MatToolbarModule,
@@ -34,7 +36,8 @@ import { MatTableModule } from '@angular/material/table';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }
