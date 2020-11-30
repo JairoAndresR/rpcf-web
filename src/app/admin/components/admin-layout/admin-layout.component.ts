@@ -20,15 +20,15 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
     {
       displayName: 'Configuración recoletor',
       iconName: '',
-      route: 'collector-conf',
+      route: 'collector-configuration',
       children: [
         {
           displayName: `Definición de GrupLAC's`,
-          route: 'collector-conf/gruplac',
+          route: 'collector-configuration/gruplac',
         },
         {
           displayName: 'Definición de productos',
-          route: 'collector-conf/products'
+          route: 'collector-configuration/products'
         }
       ]
     }
