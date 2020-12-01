@@ -1,4 +1,4 @@
-export interface HomeInfo {
+export interface ProductDefinitions {
     definitions: string[];
     total: number;
 }

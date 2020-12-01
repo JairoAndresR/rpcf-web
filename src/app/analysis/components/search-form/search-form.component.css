@@ -1,6 +1,15 @@
-h1{
+.search-card {
+    max-width: 245px;
+    position: absolute;
+    top: 12%; left: 1%;
+}
+.input {
+    width: 200px;
+}
+.date-input{
+      width: 200px;
+}
+.card-title{
     text-align: center;
-    margin-top: 2%;
-    font-size: 300%;
     color: rgb(23, 85, 155);
 }

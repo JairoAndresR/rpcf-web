@@ -1,1 +1,46 @@
-<h1>Búsqueda avanzada</h1>
+<mat-card class="search-card">
+    <mat-card-title class="card-title">Busqueda avanzada</mat-card-title>
+    <mat-form-field class="input">
+        <mat-label>Temática</mat-label>
+        <input matInput #inTemathic>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo de producto</mat-label>
+      <mat-select #inProductType>
+        <mat-option *ngFor="let pDefinition of productDefinitions.definitions" [value]="productDefinitions.definitions">
+          {{pDefinition.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Grupo de inv.</mat-label>
+      <mat-select #inGroup>
+        <mat-option *ngFor="let gDefinition of gruplacDefinitions.definitions" [value]="gruplacDefinitions.definitions">
+          {{gDefinition.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Investigador</mat-label>
+      <mat-select #inResearcher>
+          <mat-option>op 1</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="date-input">
+      <mat-label>Fecha inicio de búsqueda</mat-label>
+      <input matInput [matDatepicker]="picker" #inStartDate>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="date-input">
+      <mat-label>Fecha fin de búsqueda</mat-label>
+      <input matInput [matDatepicker]="pick" #inEndDate>
+      <mat-datepicker-toggle matSuffix [for]="pick"></mat-datepicker-toggle>
+      <mat-datepicker #pick></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <mat-label>DOI/ISBN</mat-label>
+      <input matInput #inDoi>
+  </mat-form-field>
+  <button (click)="captureData(inTemathic.value, inProductType.value, inGroup.value, inResearcher.value, inStartDate.value, inEndDate.value, inDoi.value )" mat-raised-button color="primary">Buscar</button>
+</mat-card>

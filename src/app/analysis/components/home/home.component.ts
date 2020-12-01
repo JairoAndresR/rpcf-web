@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { HomeInfo } from '../../models/home-info';
-import { HomeService } from '../../services/home.service';
+import { GruplacDefinitions } from "../../models/gruplac-definitions";
+import { GruplacDefinitionsService } from "../../services/gruplacDefinitions.service";
 
 
 @Component({
@@ -10,9 +10,9 @@ import { HomeService } from '../../services/home.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  homeInfo: HomeInfo
+  homeInfo: GruplacDefinitions
   
-  constructor(private homeService:HomeService) {
+  constructor(private gruplacDefinitionsService:GruplacDefinitionsService) {
    }
 
   ngOnInit(): void {
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   getHomeNumbers(){
-    this.homeService.getHomeNumbers().subscribe(homeInfo => {
+    this.gruplacDefinitionsService.getGruplacDefinitions().subscribe(homeInfo => {
       this.homeInfo=homeInfo
       
     });
