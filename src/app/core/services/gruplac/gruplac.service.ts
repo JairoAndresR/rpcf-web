@@ -12,7 +12,6 @@ export class GruplacService {
 
   getAllGruplacs(){
     return this.http.get<Gruplac>(`${environment.url_api}/gruplac-definitions`)
-    //return this.gruplacs
   }
 
   deleteGruplac(id: string){
@@ -20,7 +19,6 @@ export class GruplacService {
   }
 
   getGruplac(id: string){
-    console.log(id)
     return this.http.get<Gruplac>(`${environment.url_api}/gruplac-definitions/${id}`)
   }
 

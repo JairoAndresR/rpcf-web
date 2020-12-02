@@ -39,9 +39,10 @@ export class GruplacEditComponent implements OnInit {
   updateGruplac(event: Event){
     event.preventDefault()
     if(this.form.valid){
-      this.gruplacService.updateGruplac(this.form.value).subscribe(
+      let gruplac = this.form.value
+      gruplac.id = this.id
+      this.gruplacService.updateGruplac(gruplac).subscribe(
         response => {
-          console.log(response)
           this.router.navigate(['/admin/collector-configuration/gruplac'])
         }
       )
