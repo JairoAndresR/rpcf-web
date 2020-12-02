@@ -8,24 +8,11 @@ import { environment } from 'src/environments/environment';
 })
 export class GruplacService {
 
-  gruplacs: Gruplac[] = [
-    {
-      id: 'a1c4eb68-fa1d-4960-9506-be68c06ed3d0',
-      name: 'dsdsd',
-      url: 'prueba.com'
-    },
-    {
-      id: 'ddf7909c-2f68-4f94-b016-c2c4f69034ab',
-      name: 'prueba',
-      url: 'prueba.com'
-    }
-  ]
-
   constructor(private http: HttpClient) { }
 
   getAllGruplacs(){
-    //return this.http.get(`${environment.url_api}/gruplac-definitions`)
-    return this.gruplacs
+    return this.http.get<Gruplac>(`${environment.url_api}/gruplac-definitions`)
+    //return this.gruplacs
   }
 
   deleteGruplac(id: string){
@@ -33,6 +20,7 @@ export class GruplacService {
   }
 
   getGruplac(id: string){
+    console.log(id)
     return this.http.get<Gruplac>(`${environment.url_api}/gruplac-definitions/${id}`)
   }
 

@@ -22,9 +22,10 @@ export class GruplacEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) =>{
-      this.id = params.id;
-      const product = this.gruplacService.getGruplac(this.id)
-      this.form.patchValue(product)
+      this.id = params.id
+      this.gruplacService.getGruplac(this.id).subscribe(
+        gruplac => this.form.patchValue(gruplac)
+      )      
     })
   }
 
