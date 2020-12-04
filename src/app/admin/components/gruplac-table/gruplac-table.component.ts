@@ -19,7 +19,12 @@ export class GruplacTableComponent implements OnInit {
   }
 
   getAllGruplacs(){
-    this.gruplacs = this.gruplacService.getAllGruplacs()
+    //this.gruplacs = this.gruplacService.getAllGruplacs()
+    this.gruplacService.getAllGruplacs().subscribe(
+      definitions => {
+        this.gruplacs = definitions['definitions']
+      }
+    )
   }
 
   deleteGruplac(id: string){

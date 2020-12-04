@@ -1,8 +1,8 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
-import { GruplacDefinitionsService } from "../../services/gruplacDefinitions.service";
-import { GruplacDefinitions } from "../../models/gruplac-definitions";
-import { ProductDefinitionsService } from "../../services/product-definitions.service";
-import { ProductDefinitions } from "../../models/product-definitions";
+import { combineLatest } from 'rxjs';
+import { Gruplac } from "../../../core/models/gruplac.model";
+import { GruplacService } from "../../../core/services/gruplac/gruplac.service"
 
 @Component({
   selector: 'app-search-form',
@@ -10,37 +10,34 @@ import { ProductDefinitions } from "../../models/product-definitions";
   styleUrls: ['./search-form.component.css']
 })
 export class SearchFormComponent implements OnInit {
-  gruplacDefinitions: GruplacDefinitions
-  productDefinitions: ProductDefinitions
-  
-  constructor(private gruplacDefinitionsService:GruplacDefinitionsService,
-              private productDefinitionsService:ProductDefinitionsService) { }
+  gruplacDefinitions: Gruplac = null
+  gruplacNames: string[]
+
+  constructor(private gruplacService : GruplacService) { }
 
   ngOnInit(): void {
     this.getGruplacsDefinitions()
-    this.getProductsDefinitions()
   }
 
   getGruplacsDefinitions(){
-    this.gruplacDefinitionsService.getGruplacDefinitions().subscribe(gruplacDefinitions => {
+    this.gruplacService.getAllGruplacs().subscribe(gruplacDefinitions => {
       this.gruplacDefinitions=gruplacDefinitions
+      console.log(gruplacDefinitions["definitions"][0].name)
+      for(var i=0; i<=gruplacDefinitions["total"]-1;i++){
+        this.gruplacNames[i] = gruplacDefinitions["definitions"][i].name
+        console.log(this.gruplacNames[i])
+      }
     });
   }
 
-  getProductsDefinitions(){
-    this.productDefinitionsService.getProductDefinitions().subscribe(productDefinitions => {
-      this.productDefinitions=productDefinitions
-    });
-  }
 
   //Capture data will send data to the backend to realize the search of products with these characteristics
-  captureData(inTemathic, inProductType, inGroup, inResearcher, inStartDate, inEndDate, inDoi){
+  captureData(inTemathic, inProductType, inGroup, inResearcher, inStartDate, inEndDate){
     console.log(inTemathic)
     console.log(inProductType)
     console.log(inGroup)
     console.log(inResearcher)
     console.log(inStartDate)
     console.log(inEndDate)
-    console.log(inDoi)
   }
 }

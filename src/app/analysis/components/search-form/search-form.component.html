@@ -7,17 +7,17 @@
     <mat-form-field appearance="fill">
       <mat-label>Tipo de producto</mat-label>
       <mat-select #inProductType>
-        <mat-option *ngFor="let pDefinition of productDefinitions.definitions" [value]="productDefinitions.definitions">
+        <!--<mat-option *ngFor="let pDefinition of productDefinitions.definitions" [value]="productDefinitions.definitions">
           {{pDefinition.name}}
-        </mat-option>
+        </mat-option>-->
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Grupo de inv.</mat-label>
       <mat-select #inGroup>
-        <mat-option *ngFor="let gDefinition of gruplacDefinitions.definitions" [value]="gruplacDefinitions.definitions">
+      <!--<mat-option *ngFor="let gDefinition of gruplacDefinitions" [value]="gruplacDefinitions">
           {{gDefinition.name}}
-        </mat-option>
+        </mat-option>-->
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill">
@@ -37,10 +37,6 @@
       <input matInput [matDatepicker]="pick" #inEndDate>
       <mat-datepicker-toggle matSuffix [for]="pick"></mat-datepicker-toggle>
       <mat-datepicker #pick></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field class="input">
-      <mat-label>DOI/ISBN</mat-label>
-      <input matInput #inDoi>
-  </mat-form-field>
-  <button (click)="captureData(inTemathic.value, inProductType.value, inGroup.value, inResearcher.value, inStartDate.value, inEndDate.value, inDoi.value )" mat-raised-button color="primary">Buscar</button>
+    </mat-form-field> 
+  <button (click)="captureData(inTemathic.value, inProductType.value, inGroup.value, inResearcher.value, inStartDate.value, inEndDate.value)" mat-raised-button color="primary">Buscar</button>
 </mat-card>
