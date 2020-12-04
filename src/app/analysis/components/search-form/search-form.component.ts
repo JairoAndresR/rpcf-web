@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { combineLatest } from 'rxjs';
 import { Gruplac } from "../../../core/models/gruplac.model";
 import { GruplacService } from "../../../core/services/gruplac/gruplac.service"
+//import { Product } from "../../../core/models/product.model";
+//import { ProductService } from "../../../core/services/product/product.service"
 
 @Component({
   selector: 'app-search-form',
@@ -11,9 +13,11 @@ import { GruplacService } from "../../../core/services/gruplac/gruplac.service"
 })
 export class SearchFormComponent implements OnInit {
   gruplacDefinitions: Gruplac = null
+  //productDefinitions: Product = null
   gruplacNames: string[]
 
-  constructor(private gruplacService : GruplacService) { }
+  constructor(private gruplacService : GruplacService/*,
+              private productService : ProductService*/) { }
 
   ngOnInit(): void {
     this.getGruplacsDefinitions()
@@ -29,7 +33,12 @@ export class SearchFormComponent implements OnInit {
       }
     });
   }
-
+  
+  getProductsDefinitions(){
+    /*this.productService.getAllDefinitions().subscribe(productDefinitions => {
+      this.productDefinitions = productDefinitions
+    });*/
+  }
 
   //Capture data will send data to the backend to realize the search of products with these characteristics
   captureData(inTemathic, inProductType, inGroup, inResearcher, inStartDate, inEndDate){
