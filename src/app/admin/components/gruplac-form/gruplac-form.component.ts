@@ -33,7 +33,7 @@ export class GruplacFormComponent implements OnInit {
     event.preventDefault()
     if(this.form.valid){
       this.gruplacService.newGruplac(this.form.value)
-      this.router.navigate(['/admin/collector-conf/gruplac'])
+      this.router.navigate(['/admin/collector-configuration/gruplac'])
     }
     
   }

@@ -39,7 +39,7 @@ export class GruplacEditComponent implements OnInit {
     event.preventDefault()
     if(this.form.valid){
       this.gruplacService.updateGruplac(this.form.value)
-      this.router.navigate(['/admin/collector-conf/gruplac'])
+      this.router.navigate(['/admin/collector-configuration/gruplac'])
     }
   }
 
