@@ -1,0 +1,27 @@
+h1{
+    text-align: center;
+    margin-top: 10%;
+    font-size: 300%;
+    color: rgb(23, 85, 155);
+}
+.numIndicators{
+    text-align: center;
+    margin-top: 100px;
+}
+.number{
+    float: left;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    font-size: 700%;
+}
+.textIndicators{
+    text-align: center;
+}
+.description{
+    float: left;
+    margin: auto;
+    width: 50%;
+    padding: 50px;
+    font-size: 150%;
+}

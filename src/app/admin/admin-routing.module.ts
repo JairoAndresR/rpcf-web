@@ -5,6 +5,8 @@ import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.com
 import { ProductsFormComponent } from "./components/products-form/products-form.component";
 import { GruplacTableComponent } from './components/gruplac-table/gruplac-table.component';
 import { GruplacEditComponent } from './components/gruplac-edit/gruplac-edit.component';
+import { ProductsTableComponent } from './components/products-table/products-table.component';
+import { ProductsEditComponent } from './components/products-edit/products-edit.component';
 
 const routes: Routes = [
   {
@@ -28,7 +30,15 @@ const routes: Routes = [
           },
           {
             path: 'products',
+            component: ProductsTableComponent
+          },
+          {
+            path: 'products/create',
             component: ProductsFormComponent
+          },
+          {
+            path: 'products/edit/:id',
+            component: ProductsEditComponent
           },
         ]
       }
