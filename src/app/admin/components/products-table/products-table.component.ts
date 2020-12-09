@@ -28,7 +28,11 @@ export class ProductsTableComponent implements OnInit, AfterViewInit {
   }
 
   getAllProducts():void{
-    this.products = this.productService.getAllDefinitions();
+    this.productService.getAllDefinitions().subscribe(
+      products => {
+        this.products = products['Definitions']
+      }
+    )
     this.dataSource = new MatTableDataSource<Product>(this.products);
   }
 

@@ -1,45 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Product } from '../../models/product.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  products: Product[] = [
-    {
-      id: '1',
-      name: 'Libros',
-      definition: 'definition string test case'
-    },
-    {
-      id: '2',
-      name: 'Articulos',
-      definition: 'definition string test case'
-    }
-  ]
-  
   constructor(private http: HttpClient) { }
 
   getAllDefinitions(){
-    return this.products;
+    return this.http.get<Product[]>(`${environment.url_api}/product-definitions`)
   }
 
   getProduct(id:string){
-    return this.products.find(product=>{return product.id===id})
+    return this.http.get<Product>(`${environment.url_api}/product-definitions/${id}`)
   }
 
   newProduct(product:Product){
-    this.products.push(product)
+    return this.http.post<Product>(`${environment.url_api}/product-definitions`, product)
   }
 
   deleteProduct(id:string){
-    this.products = this.products.filter(product=>{return product.id!=id})
+    return this.http.delete<Product>(`${environment.url_api}/product-definitions/${id}`)
   }
 
   updateProduct(product:Product){
-    console.log(product)
+    return this.http.put(`${environment.url_api}/product-definitions/${product.id}`, product)
   }
 
 
