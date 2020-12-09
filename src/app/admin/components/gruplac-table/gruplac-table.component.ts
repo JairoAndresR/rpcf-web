@@ -26,7 +26,6 @@ export class GruplacTableComponent implements OnInit, AfterViewInit {
   }
 
   getAllGruplacs(){
-    //this.gruplacs = this.gruplacService.getAllGruplacs()
     this.gruplacService.getAllGruplacs().subscribe(
       definitions => {
         this.gruplacs = definitions['definitions']
@@ -37,7 +36,6 @@ export class GruplacTableComponent implements OnInit, AfterViewInit {
   }
 
   deleteGruplac(id: string){
-    console.log(id)
     this.gruplacService.deleteGruplac(id).subscribe(
       response => this.getAllGruplacs()
     )
