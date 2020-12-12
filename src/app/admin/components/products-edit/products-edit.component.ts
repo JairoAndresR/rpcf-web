@@ -24,8 +24,9 @@ export class ProductsEditComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params:Params) =>{
       this.id = params.id;
-      const product = this.productService.getProduct(this.id)
-      this.form.patchValue(product)
+      this.productService.getProduct(this.id).subscribe(
+        product => this.form.patchValue(product)
+      )
     })
   }
 
@@ -39,7 +40,9 @@ export class ProductsEditComponent implements OnInit {
   updateProduct(event:Event){
     event.preventDefault();
     if(this.form.valid){
-      this.productService.updateProduct(this.form.value);
+      let product = this.form.value
+      product.id = this.id
+      this.productService.updateProduct(product).subscribe();
       this.router.navigate(['admin/collector-configuration/products'])
     }
   }

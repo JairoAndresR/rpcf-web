@@ -28,13 +28,18 @@ export class ProductsTableComponent implements OnInit, AfterViewInit {
   }
 
   getAllProducts():void{
-    this.products = this.productService.getAllDefinitions();
+    this.productService.getAllDefinitions().subscribe(
+      products => {
+        this.products = products['Definitions']
+      }
+    )
     this.dataSource = new MatTableDataSource<Product>(this.products);
   }
 
   deleteProduct(id:string){
-    this.productService.deleteProduct(id);
-    this.getAllProducts()
+    this.productService.deleteProduct(id).subscribe(
+      response => this.getAllProducts()
+    );
   }
 
 }
