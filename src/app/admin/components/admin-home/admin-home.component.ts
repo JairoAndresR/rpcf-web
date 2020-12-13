@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrappingService } from "../../../core/services/scrapping/scrapping.service";
 
 @Component({
   selector: 'app-admin-home',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private scrappingService: ScrappingService) { }
 
   ngOnInit(): void {
+    
+  }
+
+  runScrapping(){
+    this.scrappingService.runScrapping().subscribe(
+      response => {
+        console.log(response)
+      }
+    )
   }
 
 }
