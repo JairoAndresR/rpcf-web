@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { HomeInfo } from '../../models/home-info';
-import { HomeService } from '../../services/home.service';
+import { GruplacService } from "../../../core/services/gruplac/gruplac.service"
+import { ProductFactService } from "../../../core/services/product-fact/product-fact.service";
 
 
 @Component({
@@ -10,9 +9,10 @@ import { HomeService } from '../../services/home.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  homeInfo: HomeInfo
-  
-  constructor(private homeService:HomeService) {
+  totalGruplac: number = 0
+  totalProducts: number = 0
+  constructor(private gruplacDefinitionsService:GruplacService,
+              private productFactService:ProductFactService) {
    }
 
   ngOnInit(): void {
@@ -20,9 +20,11 @@ export class HomeComponent implements OnInit {
   }
 
   getHomeNumbers(){
-    this.homeService.getHomeNumbers().subscribe(homeInfo => {
-      this.homeInfo=homeInfo
-      
+    this.gruplacDefinitionsService.getAllGruplacs().subscribe(homeInfo => {
+      this.totalGruplac=homeInfo["total"]     
+    });
+    this.productFactService.getAllProducts().subscribe(producstInfo => {
+      this.totalProducts = producstInfo["total"]
     });
   }
 

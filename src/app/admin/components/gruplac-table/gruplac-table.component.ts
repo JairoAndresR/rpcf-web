@@ -26,11 +26,13 @@ export class GruplacTableComponent implements OnInit, AfterViewInit {
   }
 
   getAllGruplacs(){
+
     this.gruplacService.getAllGruplacs().subscribe(
       definitions => {
         this.gruplacs = definitions['definitions']
       }
     )
+
 
     this.dataSource = new MatTableDataSource<Gruplac>(this.gruplacs)
   }

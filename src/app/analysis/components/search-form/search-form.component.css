@@ -1,0 +1,15 @@
+.search-card {
+    max-width: 245px;
+    position: absolute;
+    top: 12%; left: 1%;
+}
+.input {
+    width: 200px;
+}
+.date-input{
+      width: 200px;
+}
+.card-title{
+    text-align: center;
+    color: rgb(23, 85, 155);
+}
