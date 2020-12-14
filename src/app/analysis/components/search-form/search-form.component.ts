@@ -18,7 +18,7 @@ export class SearchFormComponent implements OnInit {
   gruplacDefinitions: Gruplac[] = []
   researchers: Researcher[] = []
   productDefinitions: Product[] = []
-
+  displayGraphics = false
   constructor(private gruplacService : GruplacService,
               private researchService : ResearcherService,
               private productService : ProductService) { }
@@ -54,5 +54,6 @@ export class SearchFormComponent implements OnInit {
     console.log(idResearcherSelected)
     console.log(startDate)
     console.log(endDate)
+    this.displayGraphics = true
   }
 }
