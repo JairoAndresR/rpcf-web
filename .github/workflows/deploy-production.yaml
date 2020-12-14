@@ -1,7 +1,7 @@
 name: Prod - Continuous Integration / Continuous Deployment
 
 env:
-  PROJECT_NAME: rpcf-web
+  PROJECT_NAME: dist
 
 on:
   push:
@@ -44,3 +44,15 @@ jobs:
           target: "/opt/app/upload"
           strip_components: 1
           rm: true
+
+      - name: Build the container and run it.
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_SERVER_HOST }}
+          username: ${{ secrets.PROD_SERVER_USERNAME }}
+          key: ${{ secrets.PROD_SERVER_PRIVATE_KEY }}
+          script: |
+            cd /opt/app/upload
+            chmod +x ./run.sh
+            ./run.sh
+          debug: true
