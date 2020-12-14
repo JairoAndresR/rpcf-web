@@ -8,5 +8,5 @@ RUN apk add bash
 RUN rm -rf /usr/share/nginx/html/*
 COPY  rpcf-web /usr/share/nginx/html
 COPY .nginx/nginx.conf /etc/nginx/nginx.conf
-
+EXPOSE 443
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
