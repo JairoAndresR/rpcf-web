@@ -2,7 +2,8 @@
 
 <button mat-raised-button color="primary" routerLink="create" class="new-gruplac-btn">Nuevo</button>
 
-<table mat-table [dataSource]="gruplacs" class="mat-elevation-z8">
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="gruplacs" class="mat-elevation-z8">
 
     <!-- ID Column -->
     <ng-container matColumnDef="ID">
@@ -34,3 +35,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

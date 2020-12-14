@@ -27,7 +27,7 @@ export class ProductService {
   }
 
   updateProduct(product:Product){
-    return this.http.put(`${environment.url_api}/product-definitions/${product.id}`, product)
+    return this.http.put<Product>(`${environment.url_api}/product-definitions/${product.id}`, product)
   }
 
 

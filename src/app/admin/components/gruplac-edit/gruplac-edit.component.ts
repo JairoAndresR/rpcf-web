@@ -22,9 +22,10 @@ export class GruplacEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) =>{
-      this.id = params.id;
-      const product = this.gruplacService.getGruplac(this.id)
-      this.form.patchValue(product)
+      this.id = params.id
+      this.gruplacService.getGruplac(this.id).subscribe(
+        gruplac => this.form.patchValue(gruplac)
+      )      
     })
   }
 
@@ -38,8 +39,13 @@ export class GruplacEditComponent implements OnInit {
   updateGruplac(event: Event){
     event.preventDefault()
     if(this.form.valid){
-      this.gruplacService.updateGruplac(this.form.value)
-      this.router.navigate(['/admin/collector-configuration/gruplac'])
+      let gruplac = this.form.value
+      gruplac.id = this.id
+      this.gruplacService.updateGruplac(gruplac).subscribe(
+        response => {
+          this.router.navigate(['/admin/collector-configuration/gruplac'])
+        }
+      )
     }
   }
 

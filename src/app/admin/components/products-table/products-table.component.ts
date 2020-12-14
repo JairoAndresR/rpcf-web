@@ -37,8 +37,9 @@ export class ProductsTableComponent implements OnInit, AfterViewInit {
   }
 
   deleteProduct(id:string){
-    this.productService.deleteProduct(id);
-    this.getAllProducts()
+    this.productService.deleteProduct(id).subscribe(
+      response => this.getAllProducts()
+    );
   }
 
 }
