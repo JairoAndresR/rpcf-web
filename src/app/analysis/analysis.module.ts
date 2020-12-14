@@ -10,9 +10,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule} from '@angular/material/core'; 
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import {MatButtonModule} from '@angular/material/button';
+import { BarchartAuthorsvsproductsComponent } from './components/barchart-authorsvsproducts/barchart-authorsvsproducts.component';
+import { BarchartGroupvsproductsComponent } from './components/barchart-groupvsproducts/barchart-groupvsproducts/barchart-groupvsproducts.component';
 
 @NgModule({
-  declarations: [HomeComponent, SearchFormComponent],
+  declarations: [HomeComponent, SearchFormComponent, BarchartAuthorsvsproductsComponent, BarchartGroupvsproductsComponent],
   imports: [
     CommonModule,
     AnalysisRoutingModule,

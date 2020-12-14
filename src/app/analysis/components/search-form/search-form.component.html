@@ -1,42 +1,46 @@
 <mat-card class="search-card">
     <mat-card-title class="card-title">Busqueda avanzada</mat-card-title>
     <mat-form-field class="input">
-        <mat-label>Temática</mat-label>
-        <input matInput #inTemathic>
+        <mat-label>Título de la temática</mat-label>
+        <input matInput #temathic>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Tipo de producto</mat-label>
-      <mat-select #inProductType>
-        <!--<mat-option *ngFor="let pDefinition of productDefinitions.definitions" [value]="productDefinitions.definitions">
-          {{pDefinition.name}}
-        </mat-option>-->
+      <mat-select #productTypeSelected>
+        <mat-option *ngFor="let definition of productDefinitions" [value]="definition.id">
+          {{definition.name}}
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Grupo de inv.</mat-label>
-      <mat-select #inGroup>
-      <!--<mat-option *ngFor="let gDefinition of gruplacDefinitions" [value]="gruplacDefinitions">
-          {{gDefinition.name}}
-        </mat-option>-->
+      <mat-select #groupSelected>
+        <mat-option *ngFor="let definition of gruplacDefinitions" [value]="definition.id">
+          {{definition.name}}
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Investigador</mat-label>
-      <mat-select #inResearcher>
-          <mat-option>op 1</mat-option>
+      <mat-select #researcherSelected>
+        <mat-option *ngFor="let researcher of researchers" [value]="researcher.id">
+          {{researcher.names}}
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill" class="date-input">
       <mat-label>Fecha inicio de búsqueda</mat-label>
-      <input matInput [matDatepicker]="picker" #inStartDate>
+      <input matInput [matDatepicker]="picker" #startDate>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-form-field appearance="fill" class="date-input">
       <mat-label>Fecha fin de búsqueda</mat-label>
-      <input matInput [matDatepicker]="pick" #inEndDate>
+      <input matInput [matDatepicker]="pick" #endDate>
       <mat-datepicker-toggle matSuffix [for]="pick"></mat-datepicker-toggle>
       <mat-datepicker #pick></mat-datepicker>
     </mat-form-field> 
-  <button (click)="captureData(inTemathic.value, inProductType.value, inGroup.value, inResearcher.value, inStartDate.value, inEndDate.value)" mat-raised-button color="primary">Buscar</button>
+  <button (click)="captureData(temathic.value, productTypeSelected.value, groupSelected.value, researcherSelected.value, startDate.value, endDate.value)" mat-raised-button color="primary">Buscar</button>
 </mat-card>
+<app-barchart-authorsvsproducts></app-barchart-authorsvsproducts>
+<app-barchart-groupvsproducts></app-barchart-groupvsproducts>
