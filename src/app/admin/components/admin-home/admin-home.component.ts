@@ -11,7 +11,7 @@ export class AdminHomeComponent implements OnInit {
   constructor(private scrappingService: ScrappingService) { }
 
   ngOnInit(): void {
-    
+
   }
 
   runScrapping(){
