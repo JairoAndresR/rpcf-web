@@ -14,7 +14,7 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
   navItems: NavItem[] = [
     {
       displayName: 'Inicio',
-      iconName: 'Home',
+      iconName: 'home',
       route: '',
     },
     {
@@ -35,13 +35,13 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
   ]
 
   constructor(private navService: NavService) { }
-  
+
   ngAfterViewInit(): void {
     this.navService.appDrawer = this.appDrawer;
   }
 
   ngOnInit(): void {
-    
+
   }
 
 }
