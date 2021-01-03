@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="col-12 col-md-8 col-lg-4 mx-auto mt-3">
+    <div class="mx-auto mt-3">
         <form [formGroup]="form" (ngSubmit)="registerProduct($event)">
             <mat-card>
                 <mat-card-header>
-                    <mat-card-title class="text-center">Nueva definición producto academico</mat-card-title>
+                    <mat-card-title class="text-center">Nueva definición producto académico</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
                     <div class="row">
@@ -18,16 +18,16 @@
                         <div class="col">
                             <mat-form-field class="w-100">
                                 <mat-label>Definición</mat-label>
-                                <textarea matInput formControlName="definition" placeholder="Definición YML"></textarea>
+                                <textarea cols="50" rows="20"   matInput formControlName="definition" placeholder="Copie y pegue la definición del archivo YML"></textarea>
                             </mat-form-field>
                         </div>
                     </div>
                 </mat-card-content>
                 <mat-card-actions class="text-center">
-                    <button mat-raised-button color="primary" type="submit">Guardar</button>
+                    <button mat-raised-button color="primary" class="btn-full" type="submit">Guardar</button>
                 </mat-card-actions>
             </mat-card>
         </form>
     </div>
-    
+
 </div>
