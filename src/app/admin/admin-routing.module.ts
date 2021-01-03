@@ -7,12 +7,17 @@ import { GruplacTableComponent } from './components/gruplac-table/gruplac-table.
 import { GruplacEditComponent } from './components/gruplac-edit/gruplac-edit.component';
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { ProductsEditComponent } from './components/products-edit/products-edit.component';
+import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 
 const routes: Routes = [
   {
     path: '',
     component: AdminLayoutComponent,
     children: [
+      {
+        path: '',
+        component: AdminHomeComponent
+      },
       {
         path: 'collector-configuration',
         children: [
