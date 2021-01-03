@@ -18,7 +18,7 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
       route: '',
     },
     {
-      displayName: 'Configuración recoletor',
+      displayName: 'Configuración recolector',
       iconName: '',
       route: 'collector-configuration',
       children: [
