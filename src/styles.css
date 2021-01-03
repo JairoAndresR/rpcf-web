@@ -7,6 +7,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin: 20px;
 }
 
-.new-btn{
-  margin-bottom: 10px;
+.btn-full{
+  width: 100%;
 }
