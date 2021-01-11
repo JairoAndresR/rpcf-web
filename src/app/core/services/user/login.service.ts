@@ -9,4 +9,8 @@ import { User } from "../../models/user.model";
 export class LoginService {
 
   constructor(private http: HttpClient) { }
+
+  loginUser(user: User) {
+    return this.http.post<User>(`${environment.url_api}/accounts/login`,user)
+  }
 }

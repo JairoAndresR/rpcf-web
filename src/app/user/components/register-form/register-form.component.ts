@@ -13,13 +13,13 @@ export class RegisterFormComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private registerService:RegisterService, 
+    private registerService:RegisterService,
     private formBuilder: FormBuilder,
     private router: Router
   ) { this.buildForm() }
 
   ngOnInit(): void {
-    
+
   }
 
   registerUser(event: Event){
@@ -28,20 +28,18 @@ export class RegisterFormComponent implements OnInit {
       const user = this.form.value
       this.registerService.registerUser(user)
       .subscribe(user =>{
-        console.log(user)
         this.router.navigate(['./account/login'])
       })
     }
 
-    
+
   }
 
   private buildForm(){
     this.form = this.formBuilder.group({
-      name: ['', [Validators.required]],
+      names: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      phone: ['', Validators.pattern('[0-9]+')]
     });
   }
 

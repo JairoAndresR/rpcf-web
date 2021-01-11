@@ -14,7 +14,7 @@ import { Router } from "@angular/router";
 export class LoginFormComponent implements OnInit {
 
   form:FormGroup;
-  constructor(private loginService:LoginService, private formbuider:FormBuilder, private router:Router) { 
+  constructor(private loginService:LoginService, private formbuider:FormBuilder, private router:Router) {
   }
 
   ngOnInit(): void {
@@ -30,16 +30,16 @@ export class LoginFormComponent implements OnInit {
   }
 
   loginUser(event:Event){
-    const newUser: User = {
-      email:'prueba',
-      password:'prueba'
-    }
+    const user = this.form.value;
+    console.log(user);
     event.preventDefault();
     if(this.form.valid){
-      const user = this.form.value;
-      //this.loginService.loginUser(user)
-      console.log(user)
-      this.router.navigate(['./admin'])
+      this.loginService.loginUser(user)
+      .subscribe(user =>{
+        if (user.role === "admin") {
+          this.router.navigate(['./admin'])
+        }
+      })
     }
 
   }
