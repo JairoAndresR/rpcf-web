@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as d3 from 'd3'
 
 @Component({
@@ -7,13 +7,9 @@ import * as d3 from 'd3'
   styleUrls: ['./barchart-groupvsproducts.component.css']
 })
 export class BarchartGroupvsproductsComponent implements OnInit {
-  private data = [
-    {"Researcher": "GIIRA", "Products": "35"},
-    {"Researcher": "ComplexUD", "Products": "10"},
-    {"Researcher": "GITEM", "Products": "8"},
-    {"Researcher": "COMA", "Products": "5"},
-    {"Researcher": "GIGA", "Products": "4"},
-  ];
+  @Input() gruplacProductsQueryList
+  
+
   private svg;
   private margin = 40;
   private width = 300 - (this.margin * 2);
@@ -23,7 +19,7 @@ export class BarchartGroupvsproductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.createSvg();
-    this.drawBars(this.data);
+    this.drawBars(this.gruplacProductsQueryList);
   }
 
   private createSvg(): void {
@@ -35,11 +31,11 @@ export class BarchartGroupvsproductsComponent implements OnInit {
     .attr("transform", "translate(" + this.margin + "," + this.margin + ")");
   }
 
-  private drawBars(data: any[]): void {
+  private drawBars(gruplacProductsQueryList: any[]): void {
     // Create the X-axis band scale
     const x = d3.scaleBand()
     .range([0, this.width])
-    .domain(data.map(d => d.Researcher))
+    .domain(gruplacProductsQueryList.map(d => d.Researcher))
     .padding(0.2);
 
     // Draw the X-axis on the DOM
@@ -61,13 +57,13 @@ export class BarchartGroupvsproductsComponent implements OnInit {
 
     // Create and fill the bars
     this.svg.selectAll("bars")
-    .data(data)
+    .data(gruplacProductsQueryList)
     .enter()
     .append("rect")
     .attr("x", d => x(d.Researcher))
-    .attr("y", d => y(d.Products))
+    .attr("y", d => Number(y(d.Products)))
     .attr("width", x.bandwidth())
-    .attr("height", (d) => this.height - y(d.Products))
+    .attr("height", (d) => this.height - Number(y(d.Products)))
     .attr("fill", "#2E46D8");
   }
 
