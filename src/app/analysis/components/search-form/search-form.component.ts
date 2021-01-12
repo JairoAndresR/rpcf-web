@@ -8,6 +8,10 @@ import { Researcher } from "../../../core/models/researcher.model";
 import { ResearcherService } from "../../../core/services/researcher/researcher.service"
 import { Product } from "../../../core/models/product.model";
 import { ProductService } from "../../../core/services/product/product.service"
+import { gruplacProductQuery } from "../../../core/models/gruplac-product-query.model";
+import { researcherProductQuery } from "../../../core/models/researcher-product-query.model";
+import { GroupProductService } from "../../../core/services/querys/group-product.service";
+import { ResearcherProductService } from "../../../core/services/querys/researcher-product.service";
 
 @Component({
   selector: 'app-search-form',
@@ -18,10 +22,16 @@ export class SearchFormComponent implements OnInit {
   gruplacDefinitions: Gruplac[] = []
   researchers: Researcher[] = []
   productDefinitions: Product[] = []
+  gruplacProductsQueryList: gruplacProductQuery[] = []
+  researcherProductsQueryList: researcherProductQuery[] = []
+
   displayGraphics = false
+
   constructor(private gruplacService : GruplacService,
               private researchService : ResearcherService,
-              private productService : ProductService) { }
+              private productService : ProductService,
+              private groupProductService: GroupProductService,
+              private researcherProductService: ResearcherProductService) { }
 
   ngOnInit(): void {
     this.getGruplacsDefinitions()
@@ -54,6 +64,17 @@ export class SearchFormComponent implements OnInit {
     console.log(idResearcherSelected)
     console.log(startDate)
     console.log(endDate)
+    //this.gruplacProductsQueryList=this.groupProductService.getAllGruplacProductsQuery(temathic, idProductTypeSelected, idResearcherSelected, startDate, endDate)
+    this.groupProductService.getAllGruplacProductsQuery(temathic, idProductTypeSelected, idResearcherSelected, startDate, endDate).subscribe(gruplacProductsQuery => {
+      this.gruplacProductsQueryList = gruplacProductsQuery["results"]
+    });
+
+    //this.researcherProductsQueryList=this.researcherProductService.getAllResearcherProductsQuery(temathic, idProductTypeSelected, idGruplacSelected, startDate, endDate)
+
+    this.researcherProductService.getAllResearcherProductsQuery(temathic, idProductTypeSelected, idGruplacSelected, startDate, endDate).subscribe(researcherProductsQuery => {
+      this.researcherProductsQueryList = researcherProductsQuery["results"]
+    });
+
     this.displayGraphics = true
   }
 }
