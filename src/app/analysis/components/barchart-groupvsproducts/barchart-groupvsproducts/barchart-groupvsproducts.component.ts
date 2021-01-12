@@ -9,13 +9,7 @@ import * as d3 from 'd3'
 export class BarchartGroupvsproductsComponent implements OnInit {
   @Input() gruplacProductsQueryList
   
-//  private data = [
-//    {"Researcher": "GIIRA", "Products": "35"},
-//    {"Researcher": "ComplexUD", "Products": "10"},
-//    {"Researcher": "GITEM", "Products": "8"},
-//    {"Researcher": "COMA", "Products": "5"},
-//    {"Researcher": "GIGA", "Products": "4"},
-//  ];
+
   private svg;
   private margin = 40;
   private width = 300 - (this.margin * 2);

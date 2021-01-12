@@ -64,12 +64,11 @@ export class SearchFormComponent implements OnInit {
     console.log(idResearcherSelected)
     console.log(startDate)
     console.log(endDate)
-    //this.gruplacProductsQueryList=this.groupProductService.getAllGruplacProductsQuery(temathic, idProductTypeSelected, idResearcherSelected, startDate, endDate)
+    
     this.groupProductService.getAllGruplacProductsQuery(temathic, idProductTypeSelected, idResearcherSelected, startDate, endDate).subscribe(gruplacProductsQuery => {
       this.gruplacProductsQueryList = gruplacProductsQuery["results"]
     });
 
-    //this.researcherProductsQueryList=this.researcherProductService.getAllResearcherProductsQuery(temathic, idProductTypeSelected, idGruplacSelected, startDate, endDate)
 
     this.researcherProductService.getAllResearcherProductsQuery(temathic, idProductTypeSelected, idGruplacSelected, startDate, endDate).subscribe(researcherProductsQuery => {
       this.researcherProductsQueryList = researcherProductsQuery["results"]

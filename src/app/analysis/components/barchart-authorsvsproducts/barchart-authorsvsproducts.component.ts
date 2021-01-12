@@ -11,13 +11,6 @@ export class BarchartAuthorsvsproductsComponent implements OnInit {
   
   @Input() researcherProductsQueryList
 
-//  private data = [
-//    {"Researcher": "Cristian Chaparro", "Products": "30"},
-//    {"Researcher": "David Aparicio", "Products": "20"},
-//    {"Researcher": "Jairo Andres Romero Triana", "Products": "15"},
-//    {"Researcher": "Investigador 4", "Products": "5"},
-//    {"Researcher": "Investigador 5", "Products": "2"},
-//  ];
   private svg;
   private margin = 40;
   private width = 300 - (this.margin * 2);
