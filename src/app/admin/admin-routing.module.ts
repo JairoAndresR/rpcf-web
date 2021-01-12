@@ -8,11 +8,13 @@ import { GruplacEditComponent } from './components/gruplac-edit/gruplac-edit.com
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { ProductsEditComponent } from './components/products-edit/products-edit.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
+import { AuthGuard } from "./../core/guards/auth.guard";
 
 const routes: Routes = [
   {
     path: '',
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -53,6 +55,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AdminRoutingModule { }
