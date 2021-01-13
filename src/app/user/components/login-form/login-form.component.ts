@@ -36,7 +36,6 @@ export class LoginFormComponent implements OnInit {
       this.loginService.loginUser(user)
       .subscribe(user =>{
         if (user.role === "admin") {
-          console.log(user.token)
           this.saveToken(user.token)
           this.router.navigate(['./admin'])
         }
