@@ -31,17 +31,21 @@ export class LoginFormComponent implements OnInit {
 
   loginUser(event:Event){
     const user = this.form.value;
-    console.log(user);
     event.preventDefault();
     if(this.form.valid){
       this.loginService.loginUser(user)
       .subscribe(user =>{
         if (user.role === "admin") {
+          console.log(user.token)
+          this.saveToken(user.token)
           this.router.navigate(['./admin'])
         }
       })
     }
+  }
 
+  saveToken(token:string){
+    localStorage.setItem("token_user", JSON.stringify(token))
   }
 
 }

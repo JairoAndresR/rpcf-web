@@ -11,7 +11,6 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   registerUser(user: User){
-
     return this.http.post<User>(`${environment.url_api}/accounts/register`,user)
   }
 }
