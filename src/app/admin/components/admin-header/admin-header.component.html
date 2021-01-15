@@ -1,5 +1,14 @@
 <p>
     <mat-toolbar color="primary" >
       <h2 class="mx-auto">Panel administrativo</h2>
+      <button mat-flat-button color="primary" [matMenuTriggerFor]="menu">
+        <span class="mat-button-wrapper">
+          {{userName}}
+          <mat-icon>arrow_drop_down</mat-icon>
+        </span>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button (click)="logout()" mat-menu-item>Logout</button>
+      </mat-menu>
     </mat-toolbar>
 </p>
