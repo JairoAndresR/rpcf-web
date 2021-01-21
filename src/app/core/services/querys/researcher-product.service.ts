@@ -11,7 +11,7 @@ export class ResearcherProductService {
   constructor(private http: HttpClient) { }
 
   getAllResearcherProductsQuery(temathic, idProductTypeSelected, idGruplacSelected, startDate, endDate){
-    return this.http.get<researcherProductQuery[]>(`${environment.url_api}/products/gruplacs?tittle=${temathic}&productType${idProductTypeSelected}&researcher${idGruplacSelected}&startDate${startDate}&endDate${endDate}`)
+    return this.http.get<researcherProductQuery[]>(`${environment.url_api}/products/gruplacs?tittle=${temathic}&productType${idProductTypeSelected}&gruplac${idGruplacSelected}&startDate${startDate}&endDate${endDate}`)
   }
 
 }

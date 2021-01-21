@@ -1,0 +1,11 @@
+<h2>Resultados</h2>
+<div id="results">
+    <mat-card *ngFor="let resultado of resultsAdvancedSearch">
+        <strong>Título: </strong><p>{{ resultado.title }}</p>
+        <strong>Tipo producto: </strong><p>{{ resultado.productType }}</p>
+        <strong>Grupo: </strong><p>{{ resultado.group }}</p>
+        <strong>Autor(es): </strong>
+            <p *ngFor="let author of resultado.authors"> {{ author }} </p>
+        <strong>Año:</strong> <p>{{ resultado.year }}</p>
+    </mat-card>
+</div>

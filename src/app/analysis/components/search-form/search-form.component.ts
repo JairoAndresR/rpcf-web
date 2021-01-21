@@ -12,6 +12,8 @@ import { gruplacProductQuery } from "../../../core/models/gruplac-product-query.
 import { researcherProductQuery } from "../../../core/models/researcher-product-query.model";
 import { GroupProductService } from "../../../core/services/querys/group-product.service";
 import { ResearcherProductService } from "../../../core/services/querys/researcher-product.service";
+import { resultAdvancedSearch } from "../../../core/models/result-advanced-search.model";
+import { ResultsAdvancedSearchService } from "../../../core/services/querys/results-advanced-search.service";
 
 @Component({
   selector: 'app-search-form',
@@ -24,6 +26,7 @@ export class SearchFormComponent implements OnInit {
   productDefinitions: Product[] = []
   gruplacProductsQueryList: gruplacProductQuery[] = []
   researcherProductsQueryList: researcherProductQuery[] = []
+  resultsAdvancedSearch: resultAdvancedSearch[]=[]
 
   displayGraphics = false
 
@@ -31,7 +34,8 @@ export class SearchFormComponent implements OnInit {
               private researchService : ResearcherService,
               private productService : ProductService,
               private groupProductService: GroupProductService,
-              private researcherProductService: ResearcherProductService) { }
+              private researcherProductService: ResearcherProductService,
+              private resultsAdvancedSearchService: ResultsAdvancedSearchService) { }
 
   ngOnInit(): void {
     this.getGruplacsDefinitions()
@@ -72,6 +76,10 @@ export class SearchFormComponent implements OnInit {
 
     this.researcherProductService.getAllResearcherProductsQuery(temathic, idProductTypeSelected, idGruplacSelected, startDate, endDate).subscribe(researcherProductsQuery => {
       this.researcherProductsQueryList = researcherProductsQuery["results"]
+    });
+
+    this.resultsAdvancedSearchService.getAllAdvancedResearchResults(temathic, idProductTypeSelected, idGruplacSelected, idResearcherSelected, startDate, endDate).subscribe(resultsAdvancedSearch =>{
+      this.resultsAdvancedSearch=resultsAdvancedSearch["results"]
     });
 
     this.displayGraphics = true

@@ -42,6 +42,7 @@
     </mat-form-field> 
   <button (click)="captureData(temathic.value, productTypeSelected.value, groupSelected.value, researcherSelected.value, startDate.value, endDate.value)" mat-raised-button color="primary">Buscar</button>
 </mat-card>
+<app-results-advanced-search></app-results-advanced-search>
 <div id="graph-render" *ngIf="displayGraphics">
   <app-barchart-authorsvsproducts></app-barchart-authorsvsproducts>
   <app-barchart-groupvsproducts></app-barchart-groupvsproducts>
