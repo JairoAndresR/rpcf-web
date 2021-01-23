@@ -12,7 +12,7 @@ import { gruplacProductQuery } from "../../../core/models/gruplac-product-query.
 import { researcherProductQuery } from "../../../core/models/researcher-product-query.model";
 import { GroupProductService } from "../../../core/services/querys/group-product.service";
 import { ResearcherProductService } from "../../../core/services/querys/researcher-product.service";
-import { resultAdvancedSearch } from "../../../core/models/result-advanced-search.model";
+import { Product } from "../../../core/models/product.model";
 import { ResultsAdvancedSearchService } from "../../../core/services/querys/results-advanced-search.service";
 
 @Component({
@@ -26,7 +26,7 @@ export class SearchFormComponent implements OnInit {
   productDefinitions: ProductDefinition[] = []
   gruplacProductsQueryList: gruplacProductQuery[] = []
   researcherProductsQueryList: researcherProductQuery[] = []
-  resultsAdvancedSearch: resultAdvancedSearch[]=[]
+  resultsAdvancedSearch: Product[]=[]
 
   displayGraphics = false
 
@@ -60,28 +60,20 @@ export class SearchFormComponent implements OnInit {
     })
   }
 
-  //Capture data will send data to the backend to realize the search of products with these characteristics
+  /* Capture data will send data to the backend to realize the search of products with these characteristics */
   captureData(temathic, idProductTypeSelected, idGruplacSelected, idResearcherSelected, startDate, endDate){
-    console.log(temathic)
-    console.log(idProductTypeSelected)
-    console.log(idGruplacSelected)
-    console.log(idResearcherSelected)
-    console.log(startDate)
-    console.log(endDate)
+    console.log(temathic);
+    console.log(idProductTypeSelected);
+    console.log(idGruplacSelected);
+    console.log(idResearcherSelected);
+    console.log(startDate);
+    console.log(endDate);
 
-    this.groupProductService.getAllGruplacProductsQuery(temathic, idProductTypeSelected, idResearcherSelected, startDate, endDate).subscribe(gruplacProductsQuery => {
-      this.gruplacProductsQueryList = gruplacProductsQuery["results"]
-    });
-
-
-    this.researcherProductService.getAllResearcherProductsQuery(temathic, idProductTypeSelected, idGruplacSelected, startDate, endDate).subscribe(researcherProductsQuery => {
-      this.researcherProductsQueryList = researcherProductsQuery["results"]
-    });
 
     this.resultsAdvancedSearchService.getAllAdvancedResearchResults(temathic, idProductTypeSelected, idGruplacSelected, idResearcherSelected, startDate, endDate).subscribe(resultsAdvancedSearch =>{
-      this.resultsAdvancedSearch=resultsAdvancedSearch["results"]
+      this.resultsAdvancedSearch=resultsAdvancedSearch["products"];
     });
 
-    this.displayGraphics = true
+    this.displayGraphics = true;
   }
 }
