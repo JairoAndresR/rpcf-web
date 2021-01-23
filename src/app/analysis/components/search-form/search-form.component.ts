@@ -6,8 +6,8 @@ import { Gruplac } from "../../../core/models/gruplac.model";
 import { GruplacService } from "../../../core/services/gruplac/gruplac.service"
 import { Researcher } from "../../../core/models/researcher.model";
 import { ResearcherService } from "../../../core/services/researcher/researcher.service"
-import { Product } from "../../../core/models/product.model";
-import { ProductService } from "../../../core/services/product/product.service"
+import { ProductDefinition } from "../../../core/models/product-definition.model";
+import { ProductDefinitionService } from "../../../core/services/product/product-definition.service"
 import { gruplacProductQuery } from "../../../core/models/gruplac-product-query.model";
 import { researcherProductQuery } from "../../../core/models/researcher-product-query.model";
 import { GroupProductService } from "../../../core/services/querys/group-product.service";
@@ -23,7 +23,7 @@ import { ResultsAdvancedSearchService } from "../../../core/services/querys/resu
 export class SearchFormComponent implements OnInit {
   gruplacDefinitions: Gruplac[] = []
   researchers: Researcher[] = []
-  productDefinitions: Product[] = []
+  productDefinitions: ProductDefinition[] = []
   gruplacProductsQueryList: gruplacProductQuery[] = []
   researcherProductsQueryList: researcherProductQuery[] = []
   resultsAdvancedSearch: resultAdvancedSearch[]=[]
@@ -32,7 +32,7 @@ export class SearchFormComponent implements OnInit {
 
   constructor(private gruplacService : GruplacService,
               private researchService : ResearcherService,
-              private productService : ProductService,
+              private productService : ProductDefinitionService,
               private groupProductService: GroupProductService,
               private researcherProductService: ResearcherProductService,
               private resultsAdvancedSearchService: ResultsAdvancedSearchService) { }
@@ -47,7 +47,7 @@ export class SearchFormComponent implements OnInit {
       this.gruplacDefinitions=gruplacDefinitions["definitions"]
     });
   }
-  
+
   getProductsDefinitions(){
     this.productService.getAllDefinitions().subscribe(productDefinitions => {
       this.productDefinitions = productDefinitions["Definitions"]
@@ -68,7 +68,7 @@ export class SearchFormComponent implements OnInit {
     console.log(idResearcherSelected)
     console.log(startDate)
     console.log(endDate)
-    
+
     this.groupProductService.getAllGruplacProductsQuery(temathic, idProductTypeSelected, idResearcherSelected, startDate, endDate).subscribe(gruplacProductsQuery => {
       this.gruplacProductsQueryList = gruplacProductsQuery["results"]
     });

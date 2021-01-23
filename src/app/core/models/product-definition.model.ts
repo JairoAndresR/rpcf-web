@@ -1,4 +1,4 @@
-export interface Product {
+export interface ProductDefinition {
     id?: string,
     name: string,
     definition: string,
