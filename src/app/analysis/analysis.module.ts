@@ -12,10 +12,10 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import {MatButtonModule} from '@angular/material/button';
 import { BarchartAuthorsvsproductsComponent } from './components/barchart-authorsvsproducts/barchart-authorsvsproducts.component';
 import { BarchartGroupvsproductsComponent } from './components/barchart-groupvsproducts/barchart-groupvsproducts/barchart-groupvsproducts.component';
-import { ResultsAdvancedSearchComponent } from './components/results-advanced-search/results-advanced-search.component';
+import { ProductResultComponent } from './components/products-result/product-result.component';
 
 @NgModule({
-  declarations: [HomeComponent, SearchFormComponent, BarchartAuthorsvsproductsComponent, BarchartGroupvsproductsComponent, ResultsAdvancedSearchComponent],
+  declarations: [HomeComponent, SearchFormComponent, BarchartAuthorsvsproductsComponent, BarchartGroupvsproductsComponent, ProductResultComponent],
   imports: [
     CommonModule,
     AnalysisRoutingModule,

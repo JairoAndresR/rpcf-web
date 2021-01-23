@@ -34,7 +34,7 @@ export class ProductsFormComponent implements OnInit {
     event.preventDefault();
     if(this.form.valid){
       this.productService.newProduct(this.form.value).subscribe()
-      this.router.navigate(['/admin/collector-configuration/products'])
+      this.router.navigate(['/admin/collector-configuration/products-result'])
     }
   }
 

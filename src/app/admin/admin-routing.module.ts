@@ -40,11 +40,11 @@ const routes: Routes = [
             component: ProductsTableComponent
           },
           {
-            path: 'products/create',
+            path: 'products-result/create',
             component: ProductsFormComponent
           },
           {
-            path: 'products/edit/:id',
+            path: 'products-result/edit/:id',
             component: ProductsEditComponent
           },
         ]

@@ -43,7 +43,7 @@ export class ProductsEditComponent implements OnInit {
       let product = this.form.value
       product.id = this.id
       this.productService.updateProduct(product).subscribe();
-      this.router.navigate(['admin/collector-configuration/products'])
+      this.router.navigate(['admin/collector-configuration/products-result'])
     }
   }
 

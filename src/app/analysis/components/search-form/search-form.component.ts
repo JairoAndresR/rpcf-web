@@ -26,7 +26,7 @@ export class SearchFormComponent implements OnInit {
   productDefinitions: ProductDefinition[] = []
   gruplacProductsQueryList: gruplacProductQuery[] = []
   researcherProductsQueryList: researcherProductQuery[] = []
-  resultsAdvancedSearch: Product[]=[]
+  products: Product[]=[]
 
   displayGraphics = false
 
@@ -60,7 +60,7 @@ export class SearchFormComponent implements OnInit {
     })
   }
 
-  /* Capture data will send data to the backend to realize the search of products with these characteristics */
+  /* Capture data will send data to the backend to realize the search of products-result with these characteristics */
   captureData(temathic, idProductTypeSelected, idGruplacSelected, idResearcherSelected, startDate, endDate){
     console.log(temathic);
     console.log(idProductTypeSelected);
@@ -70,8 +70,8 @@ export class SearchFormComponent implements OnInit {
     console.log(endDate);
 
 
-    this.resultsAdvancedSearchService.getAllAdvancedResearchResults(temathic, idProductTypeSelected, idGruplacSelected, idResearcherSelected, startDate, endDate).subscribe(resultsAdvancedSearch =>{
-      this.resultsAdvancedSearch=resultsAdvancedSearch["products"];
+    this.resultsAdvancedSearchService.getAllAdvancedResearchResults(temathic, idProductTypeSelected, idGruplacSelected, idResearcherSelected, startDate, endDate).subscribe(resultsAdvancedSearch => {
+      this.products=resultsAdvancedSearch["products"];
     });
 
     this.displayGraphics = true;
