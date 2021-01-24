@@ -1,4 +1,4 @@
-export interface gruplacProductQuery{
+export interface ReportResult {
     value: string;
     count: string;
 }
