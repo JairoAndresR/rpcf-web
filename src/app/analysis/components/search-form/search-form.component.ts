@@ -10,7 +10,7 @@ import { ProductDefinition } from '../../../core/models/product-definition.model
 import { ProductDefinitionService } from '../../../core/services/product/product-definition.service'
 import { gruplacProductQuery } from '../../../core/models/gruplac-product-query.model';
 import { researcherProductQuery } from '../../../core/models/researcher-product-query.model';
-import { GroupProductService } from '../../../core/services/search/group-product.service';
+import { ProductReportService } from '../../../core/services/search/product-report.service';
 import { ResearcherProductService } from '../../../core/services/search/researcher-product.service';
 import { Product } from '../../../core/models/product.model';
 import { ProductSearchService } from '../../../core/services/search/product-search.service';
@@ -34,7 +34,7 @@ export class SearchFormComponent implements OnInit {
   constructor(private gruplacService: GruplacService,
               private researchService: ResearcherService,
               private productDefinitionService: ProductDefinitionService,
-              private groupProductService: GroupProductService,
+              private groupProductService: ProductReportService,
               private researcherProductService: ResearcherProductService,
               private searchService: ProductSearchService) { }
 
@@ -81,7 +81,7 @@ export class SearchFormComponent implements OnInit {
 
     });
 
-    this.groupProductService.getAllGruplacProductsQuery(thematic,
+    this.groupProductService.countAllByGroups(thematic,
         idProductTypeSelected, idResearcherSelected, startDate, endDate).subscribe(gruplacProductsQuery => {
           console.log(gruplacProductsQuery);
       this.gruplacProductsQueryList = gruplacProductsQuery['reports'];
