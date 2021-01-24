@@ -7,7 +7,7 @@ import * as d3 from 'd3';
   styleUrls: ['./barchart-group-and-products.component.css']
 })
 export class BarchartGroupAndProductsComponent implements OnInit, OnChanges {
-  @Input() gruplacProductsQueryList;
+  @Input() reportList;
   private svg;
   private margin = 40;
   private width = 300 - (this.margin * 2);
@@ -15,11 +15,11 @@ export class BarchartGroupAndProductsComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.createSvg();
-    this.drawBars(this.gruplacProductsQueryList);
+    this.drawBars(this.reportList);
   }
 
   ngOnChanges(): void {
-    this.drawBars(this.gruplacProductsQueryList);
+    this.drawBars(this.reportList);
   }
 
   private createSvg(): void {
