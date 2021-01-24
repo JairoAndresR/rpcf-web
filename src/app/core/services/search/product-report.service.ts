@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { ReportResult } from './../../models/gruplac-product-query.model';
+import { ReportResult } from '../../models/report-result.model';
 import {Observable} from 'rxjs';
 
 @Injectable({

@@ -8,7 +8,7 @@ import { Researcher } from '../../../core/models/researcher.model';
 import { ResearcherService } from '../../../core/services/researcher/researcher.service'
 import { ProductDefinition } from '../../../core/models/product-definition.model';
 import { ProductDefinitionService } from '../../../core/services/product/product-definition.service'
-import { ReportResult } from '../../../core/models/gruplac-product-query.model';
+import { ReportResult } from '../../../core/models/report-result.model';
 import { researcherProductQuery } from '../../../core/models/researcher-product-query.model';
 import { ProductReportService } from '../../../core/services/search/product-report.service';
 import { ResearcherProductService } from '../../../core/services/search/researcher-product.service';
