@@ -2,11 +2,11 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
-  selector: 'app-barchart-groupvsproducts',
-  templateUrl: './barchart-groupvsproducts.component.html',
-  styleUrls: ['./barchart-groupvsproducts.component.css']
+  selector: 'app-barchart-group-and-products',
+  templateUrl: './barchart-group-and-products.component.html',
+  styleUrls: ['./barchart-group-and-products.component.css']
 })
-export class BarchartGroupvsproductsComponent implements OnInit, OnChanges {
+export class BarchartGroupAndProductsComponent implements OnInit, OnChanges {
   @Input() gruplacProductsQueryList;
   private svg;
   private margin = 40;

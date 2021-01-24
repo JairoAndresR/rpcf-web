@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BarchartGroupvsproductsComponent } from './barchart-groupvsproducts.component';
+import { BarchartGroupAndProductsComponent } from './barchart-group-and-products.component';
 
 describe('BarchartGroupvsproductsComponent', () => {
-  let component: BarchartGroupvsproductsComponent;
-  let fixture: ComponentFixture<BarchartGroupvsproductsComponent>;
+  let component: BarchartGroupAndProductsComponent;
+  let fixture: ComponentFixture<BarchartGroupAndProductsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BarchartGroupvsproductsComponent ]
+      declarations: [ BarchartGroupAndProductsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BarchartGroupvsproductsComponent);
+    fixture = TestBed.createComponent(BarchartGroupAndProductsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
