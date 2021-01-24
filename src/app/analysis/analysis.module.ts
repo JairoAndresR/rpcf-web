@@ -8,7 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule} from '@angular/material/core'; 
-import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button';
 import { BarchartAuthorsAndProductsComponent } from './components/barchart/barchart-authors-and-products/barchart-authors-and-products.component';
 import { BarchartGroupAndProductsComponent } from './components/barchart/barchart-group-and-products/barchart-group-and-products.component';
@@ -16,7 +16,12 @@ import { ProductResultComponent } from './components/products-result/product-res
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [HomeComponent, SearchFormComponent, BarchartAuthorsAndProductsComponent, BarchartGroupAndProductsComponent, ProductResultComponent],
+  declarations: [
+      HomeComponent,
+      SearchFormComponent,
+      BarchartAuthorsAndProductsComponent,
+      BarchartGroupAndProductsComponent,
+      ProductResultComponent],
     imports: [
         CommonModule,
         AnalysisRoutingModule,
