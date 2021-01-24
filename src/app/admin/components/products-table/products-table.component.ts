@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Product } from 'src/app/core/models/product.model';
-import { ProductService } from 'src/app/core/services/product/product.service';
+import { ProductDefinition } from 'src/app/core/models/product-definition.model';
+import { ProductDefinitionService } from 'src/app/core/services/product/product-definition.service';
 
 @Component({
   selector: 'app-products-table',
@@ -13,12 +13,12 @@ export class ProductsTableComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator
 
-  products: Product[];
+  products: ProductDefinition[];
   displayedColumns: string[] = ['ID', 'Nombre', 'Acciones'];
   dataSource = null;
 
-  constructor(private productService:ProductService) { }
-  
+  constructor(private productService:ProductDefinitionService) { }
+
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
@@ -33,7 +33,7 @@ export class ProductsTableComponent implements OnInit, AfterViewInit {
         this.products = products['Definitions']
       }
     )
-    this.dataSource = new MatTableDataSource<Product>(this.products);
+    this.dataSource = new MatTableDataSource<ProductDefinition>(this.products);
   }
 
   deleteProduct(id:string){

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
-import { ProductService } from 'src/app/core/services/product/product.service';
+import { ProductDefinitionService } from 'src/app/core/services/product/product-definition.service';
 
 @Component({
   selector: 'app-products-form',
@@ -15,7 +15,7 @@ export class ProductsFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private productService: ProductService,
+    private productService: ProductDefinitionService,
     private router: Router
   ) { }
 
@@ -34,7 +34,7 @@ export class ProductsFormComponent implements OnInit {
     event.preventDefault();
     if(this.form.valid){
       this.productService.newProduct(this.form.value).subscribe()
-      this.router.navigate(['/admin/collector-configuration/products'])
+      this.router.navigate(['/admin/collector-configuration/products-result'])
     }
   }
 

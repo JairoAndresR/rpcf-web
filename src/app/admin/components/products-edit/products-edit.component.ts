@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { Product } from 'src/app/core/models/product.model';
-import { ProductService } from 'src/app/core/services/product/product.service';
+import { ProductDefinition } from 'src/app/core/models/product-definition.model';
+import { ProductDefinitionService } from 'src/app/core/services/product/product-definition.service';
 
 @Component({
   selector: 'app-products-edit',
@@ -16,7 +16,7 @@ export class ProductsEditComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private productService: ProductService,
+    private productService: ProductDefinitionService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) { this.buildForm() }
@@ -43,7 +43,7 @@ export class ProductsEditComponent implements OnInit {
       let product = this.form.value
       product.id = this.id
       this.productService.updateProduct(product).subscribe();
-      this.router.navigate(['admin/collector-configuration/products'])
+      this.router.navigate(['admin/collector-configuration/products-result'])
     }
   }
 

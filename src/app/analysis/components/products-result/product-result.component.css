@@ -1,0 +1,13 @@
+h2 {
+  text-align: center;
+}
+#results {
+  position: absolute;
+  margin: 20px;
+  top: 12%;
+  left: 25%;
+  width: 40%;
+}
+mat-card {
+  margin: 7px;
+}

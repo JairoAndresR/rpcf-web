@@ -28,7 +28,7 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
         },
         {
           displayName: 'Definición de productos',
-          route: 'collector-configuration/products'
+          route: 'collector-configuration/products-result'
         }
       ]
     }

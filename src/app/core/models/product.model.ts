@@ -1,7 +1,9 @@
 export interface Product {
-    id?: string,
-    name: string,
-    definition: string,
-    created_at: string,
-    updated_at: string
+    id: string;
+    title: string;
+    typeId: string;
+    typeName: string;
+    groupCode: string;
+    startYear?: string;
+    endYear?: string;
 }
