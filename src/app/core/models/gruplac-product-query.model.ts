@@ -1,4 +1,4 @@
 export interface gruplacProductQuery{
-    group: string;
-    products: string;
+    value: string;
+    count: string;
 }

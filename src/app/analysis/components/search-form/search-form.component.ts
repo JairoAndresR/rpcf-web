@@ -71,7 +71,7 @@ export class SearchFormComponent implements OnInit {
     console.log(idResearcherSelected);
     console.log(startDate);
     console.log(endDate);
-    {}
+
 
     this.searchService.getAllAdvancedResearchResults(thematic,
         idProductTypeSelected, idGruplacSelected,
@@ -80,6 +80,13 @@ export class SearchFormComponent implements OnInit {
       this.products = resultsAdvancedSearch['products'];
 
     });
+
+    this.groupProductService.getAllGruplacProductsQuery(thematic,
+        idProductTypeSelected, idResearcherSelected, startDate, endDate).subscribe(gruplacProductsQuery => {
+          console.log(gruplacProductsQuery);
+      this.gruplacProductsQueryList = gruplacProductsQuery['reports'];
+    });
+
 
     this.displayGraphics = true;
   }

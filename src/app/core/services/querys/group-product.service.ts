@@ -11,6 +11,6 @@ export class GroupProductService {
   constructor(private http: HttpClient) { }
 
   getAllGruplacProductsQuery(thematic: string, idProductTypeSelected: string, idResearcherSelected: string, startDate: string, endDate: string): Observable<gruplacProductQuery[]> {
-    return this.http.get<gruplacProductQuery[]>(`${environment.url_api}/products/gruplacs?tittle=${thematic}&productType${idProductTypeSelected}&researcher${idResearcherSelected}&startDate${startDate}&endDate${endDate}`);
+    return this.http.get<gruplacProductQuery[]>(`${environment.url_api}/products/reports?groupType=group_name&tittle=${thematic}&productType${idProductTypeSelected}&researcher${idResearcherSelected}&startDate${startDate}&endDate${endDate}`);
   }
 }
