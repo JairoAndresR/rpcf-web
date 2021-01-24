@@ -1,12 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import * as d3 from 'd3'
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import * as d3 from 'd3';
 
 @Component({
   selector: 'app-barchart-groupvsproducts',
   templateUrl: './barchart-groupvsproducts.component.html',
   styleUrls: ['./barchart-groupvsproducts.component.css']
 })
-export class BarchartGroupvsproductsComponent implements OnInit {
+export class BarchartGroupvsproductsComponent implements OnInit, OnChanges {
   @Input() gruplacProductsQueryList;
   private svg;
   private margin = 40;
@@ -15,6 +15,10 @@ export class BarchartGroupvsproductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.createSvg();
+    this.drawBars(this.gruplacProductsQueryList);
+  }
+
+  ngOnChanges(): void {
     this.drawBars(this.gruplacProductsQueryList);
   }
 
@@ -27,11 +31,15 @@ export class BarchartGroupvsproductsComponent implements OnInit {
     .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
   }
 
-  private drawBars(gruplacProductsQueryList: any[]): void {
+  private drawBars(reportList: any[]): void {
+    if (reportList.length === 0) {
+      return;
+    }
+
     // Create the X-axis band scale
     const xAxis = d3.scaleBand()
       .range([0, this.width])
-      .domain(gruplacProductsQueryList.map(d => d.value))
+      .domain(reportList.map(d => d.value))
       .padding(0.2);
 
     // Draw the X-axis on the DOM
@@ -53,13 +61,13 @@ export class BarchartGroupvsproductsComponent implements OnInit {
 
     // Create and fill the bars
     this.svg.selectAll('bars')
-      .data(gruplacProductsQueryList)
+      .data(reportList)
       .enter()
       .append('rect')
-      .attr('x', d => xAxis(d.value))
-      .attr('y', d => Number(yAxis(d.count)))
+      .attr('x', report => xAxis(report.value))
+      .attr('y', report => yAxis(report.count))
       .attr('width', xAxis.bandwidth())
-      .attr('height', (d) => this.height - Number(yAxis(d.count)))
+      .attr('height', (report) => this.height - yAxis(report.count))
       .attr('fill', '#2E46D8');
   }
 
