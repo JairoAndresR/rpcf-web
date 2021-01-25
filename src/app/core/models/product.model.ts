@@ -4,6 +4,7 @@ export interface Product {
     typeId: string;
     typeName: string;
     groupCode: string;
+    groupName: string;
     startYear?: string;
     endYear?: string;
 }

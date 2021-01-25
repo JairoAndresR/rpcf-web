@@ -76,7 +76,6 @@ export class SearchFormComponent implements OnInit {
     this.searchService.getAllProducts(thematic,
         idProductTypeSelected, idGruplacSelected,
         idResearcherSelected, startDate, endDate).subscribe(resultsAdvancedSearch => {
-
       this.products = resultsAdvancedSearch['products'];
 
     });
