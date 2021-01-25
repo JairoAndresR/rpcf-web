@@ -40,7 +40,7 @@ export class SearchFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGruplacsDefinitions();
-    this.getResearchers();
+    // this.getResearchers();
     this.getProductsDefinitions();
   }
   getGruplacsDefinitions(): void {
@@ -55,8 +55,8 @@ export class SearchFormComponent implements OnInit {
     });
   }
 
-  getResearchers(): void {
-    this.researchService.getAllResearchers().subscribe(researchers => {
+  getResearchers(idGruplacSelected): void {
+    this.researchService.getAllResearchers(idGruplacSelected).subscribe(researchers => {
       this.researchers = researchers['authors'];
     });
   }
