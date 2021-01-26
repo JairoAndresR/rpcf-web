@@ -41,7 +41,6 @@ export class SearchFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGruplacsDefinitions();
-    // this.getResearchers();
     this.getProductsDefinitions();
   }
   getGruplacsDefinitions(): void {
