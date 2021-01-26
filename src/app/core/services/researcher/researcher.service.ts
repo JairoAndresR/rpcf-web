@@ -10,7 +10,7 @@ export class ResearcherService {
 
   constructor(private http: HttpClient) { }
 
-  getAllResearchers(idGruplacSelected){
-    return this.http.get<Researcher>(`${environment.url_api}/authors?groupCode=${idGruplacSelected}`);
+  getAllResearchers(selectedGroupLacCode){
+    return this.http.get<Researcher>(`${environment.url_api}/authors?groupCode=${selectedGroupLacCode}`);
   }
 }

@@ -29,7 +29,7 @@
     <!-- RESEARCHERS    -->
     <mat-form-field appearance="fill">
       <mat-label>Investigador</mat-label>
-      <mat-select #researcherSelected>
+      <mat-select disabled=enableResearchers #researcherSelected>
         <mat-option *ngFor="let researcher of researchers" [value]="researcher.id">
           {{researcher.names}}
         </mat-option>

@@ -30,6 +30,7 @@ export class SearchFormComponent implements OnInit {
   products: Product[] = [];
   displayGraphics = false;
   selectedGroupLacCode: string;
+  enableResearchers = 'false';
 
   constructor(private gruplacService: GruplacService,
               private researchService: ResearcherService,
@@ -55,8 +56,8 @@ export class SearchFormComponent implements OnInit {
     });
   }
 
-  getResearchers(idGruplacSelected): void {
-    this.researchService.getAllResearchers(idGruplacSelected).subscribe(researchers => {
+  getResearchers(selectedGroupLacCode): void {
+    this.researchService.getAllResearchers(selectedGroupLacCode).subscribe(researchers => {
       this.researchers = researchers['authors'];
     });
   }
@@ -91,6 +92,8 @@ export class SearchFormComponent implements OnInit {
   }
 
   onChangeGroup(): void {
+    console.log('gonorrea');
     console.log(this.selectedGroupLacCode);
+    this.getResearchers(this.selectedGroupLacCode);
   }
 }
