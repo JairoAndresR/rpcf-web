@@ -30,7 +30,7 @@ export class SearchFormComponent implements OnInit {
   products: Product[] = [];
   displayGraphics = false;
   selectedGroupLacCode: string;
-  enableResearchers = 'false';
+  disableResearchers = true;
 
   constructor(private gruplacService: GruplacService,
               private researchService: ResearcherService,
@@ -92,8 +92,8 @@ export class SearchFormComponent implements OnInit {
   }
 
   onChangeGroup(): void {
-    console.log('gonorrea');
     console.log(this.selectedGroupLacCode);
     this.getResearchers(this.selectedGroupLacCode);
+    this.disableResearchers = false;
   }
 }
