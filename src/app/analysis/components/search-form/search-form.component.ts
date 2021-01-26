@@ -30,6 +30,7 @@ export class SearchFormComponent implements OnInit {
   products: Product[] = [];
   displayGraphics = false;
   selectedGroupLacCode: string;
+  disableResearchers = true;
 
   constructor(private gruplacService: GruplacService,
               private researchService: ResearcherService,
@@ -40,7 +41,6 @@ export class SearchFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGruplacsDefinitions();
-    this.getResearchers();
     this.getProductsDefinitions();
   }
   getGruplacsDefinitions(): void {
@@ -55,8 +55,8 @@ export class SearchFormComponent implements OnInit {
     });
   }
 
-  getResearchers(): void {
-    this.researchService.getAllResearchers().subscribe(researchers => {
+  getResearchers(selectedGroupLacCode): void {
+    this.researchService.getAllResearchers(selectedGroupLacCode).subscribe(researchers => {
       this.researchers = researchers['authors'];
     });
   }
@@ -92,5 +92,7 @@ export class SearchFormComponent implements OnInit {
 
   onChangeGroup(): void {
     console.log(this.selectedGroupLacCode);
+    this.getResearchers(this.selectedGroupLacCode);
+    this.disableResearchers = false;
   }
 }
