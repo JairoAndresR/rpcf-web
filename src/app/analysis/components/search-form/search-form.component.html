@@ -55,10 +55,11 @@
     <button (click)="captureData(temathic.value, productTypeSelected.value, groupSelected.value, researcherSelected.value, startDate.value, endDate.value)" mat-raised-button color="primary">Buscar</button>
 </mat-card>
 
-<app-results-advanced-search [products]="products"></app-results-advanced-search>
 
-<div id="graph-render" *ngIf="displayGraphics">
+
+<div id="graph-render" *ngIf="displayGraphicsAndResults">
+    <app-results-advanced-search [products]="products"></app-results-advanced-search>
 <!--  <app-barchart-authors-and-products></app-barchart-authors-and-products>-->
-  <app-barchart-group-and-products [reportList]="gruplacProductsQueryList"></app-barchart-group-and-products>
+    <app-barchart-group-and-products [reportList]="gruplacProductsQueryList"></app-barchart-group-and-products>
 </div>
 
