@@ -1,9 +1,10 @@
 <h2>Resultados</h2>
 <div id="results">
-    <mat-card *ngFor="let product of products">
+    <mat-card *ngFor="let product of obs | async">
         <strong>Título: </strong><p>{{ product.title }}</p>
         <strong>Tipo producto: </strong><p>{{ product.typeName }}</p>
         <strong>Grupo: </strong><p>{{ product.groupName }}</p>
         <strong>Año:</strong> <p>{{ product.year }}</p>
     </mat-card>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>

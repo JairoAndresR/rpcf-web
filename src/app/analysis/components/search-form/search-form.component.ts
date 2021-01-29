@@ -28,7 +28,7 @@ export class SearchFormComponent implements OnInit {
   gruplacProductsQueryList: ReportResult[] = [];
   researcherProductsQueryList: researcherProductQuery[] = [];
   products: Product[] = [];
-  displayGraphics = false;
+  displayGraphicsAndResults = false;
   selectedGroupLacCode: string;
   disableResearchers = true;
 
@@ -87,7 +87,7 @@ export class SearchFormComponent implements OnInit {
     });
 
 
-    this.displayGraphics = true;
+    this.displayGraphicsAndResults = true;
   }
 
   onChangeGroup(): void {

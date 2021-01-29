@@ -14,6 +14,7 @@ import { BarchartAuthorsAndProductsComponent } from './components/barchart/barch
 import { BarchartGroupAndProductsComponent } from './components/barchart/barchart-group-and-products/barchart-group-and-products.component';
 import { ProductResultComponent } from './components/products-result/product-result.component';
 import {FormsModule} from '@angular/forms';
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {FormsModule} from '@angular/forms';
         MatNativeDateModule,
         MatDatepickerModule,
         MatButtonModule,
-        FormsModule
+        FormsModule,
+        MatPaginatorModule
     ]
 })
 export class AnalysisModule { }
