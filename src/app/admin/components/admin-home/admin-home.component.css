@@ -18,3 +18,8 @@
     overflow: hidden;
     word-wrap: break-word;
 }
+
+.math-cell-execute{
+    display: flex;
+    justify-content: flex-end;
+}

@@ -26,19 +26,26 @@
         <div class="mat-table">
             <div class="mat-header-row">
                 <div class="mat-header-cell">Proceso</div>
-                <div class="mat-header-cell">Acción</div>
+                <div class="mat-header-cell math-cell-execute">Acción</div>
             </div>
             <div class="mat-row">
                 <div class="mat-cell">Recolección de Autores</div>
-                <div class="mat-cell">
-                    <button mat-raised-button color="primary" (click)="runAuthorsScraping()">Ejecutar</button>
+                <div class="mat-cell math-cell-execute">
+
+                    <button class="mx-1" mat-raised-button color="primary" (click)="runAuthorsScraping()">
+                        <mat-icon>restart_alt</mat-icon>
+                        Ejecutar
+                    </button>
                 </div>
             </div>
 
             <div class="mat-row">
                 <div class="mat-cell">Recolección de Productos</div>
-                <div class="mat-cell">
-                    <button mat-raised-button color="primary" (click)="runProductScraping()">Ejecutar</button>
+                <div class="mat-cell math-cell-execute">
+                    <button class="mx-1" mat-raised-button color="primary" (click)="runProductScraping()">
+                        <mat-icon>restart_alt</mat-icon>
+                        Ejecutar
+                    </button>
                 </div>
             </div>
         </div>
