@@ -1,4 +1,4 @@
-<div class="container">
+<div class="table-container">
     <div class="row">
         <div class="col-12">
             <mat-card>
@@ -7,16 +7,42 @@
                         <h1 class="text-center">Bienvenido {{userName}}</h1>
                     </mat-card-title>
                 </mat-card-header>
+
                 <mat-card-content>
                     <div class="col-12">
-                        <h3>A continuación podrá ejecutar el proceso de recolección de productos de investigación de los grupos adscritos al Instituto de Investigación e Innovación I3+</h3>
-                    </div>
-                    <div class="col-12">
-                        <h2>Ejecutar ahora</h2>
-                        <button mat-raised-button color="primary" (click)="runScrapping()">Ejecutar</button>
+                        <h3>A continuación podrá ejecutar los diferentes procesos de recolección  referente a los grupos adscritos al Instituto de Investigación e Innovación I3+.
+                        La información se obtendra de las páginas públicas en https://scienti.minciencias.gov.co/
+                        </h3>
                     </div>
                 </mat-card-content>
             </mat-card>
+
         </div>
     </div>
 </div>
+
+<div class="table-container">
+    <div class="mat-elevation-z8">
+        <div class="mat-table">
+            <div class="mat-header-row">
+                <div class="mat-header-cell">Proceso</div>
+                <div class="mat-header-cell">Acción</div>
+            </div>
+            <div class="mat-row">
+                <div class="mat-cell">Recolección de Autores</div>
+                <div class="mat-cell">
+                    <button mat-raised-button color="primary" (click)="runAuthorsScraping()">Ejecutar</button>
+                </div>
+            </div>
+
+            <div class="mat-row">
+                <div class="mat-cell">Recolección de Productos</div>
+                <div class="mat-cell">
+                    <button mat-raised-button color="primary" (click)="runProductScraping()">Ejecutar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

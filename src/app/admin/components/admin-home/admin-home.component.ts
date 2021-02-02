@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ScrappingService } from "../../../core/services/scrapping/scrapping.service";
-import jwt_decode  from "jwt-decode";
+import { ScrappingService } from '../../../core/services/scrapping/scrapping.service';
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-admin-home',
@@ -11,36 +11,41 @@ export class AdminHomeComponent implements OnInit {
 
   userName: string;
 
-  constructor(private scrappingService: ScrappingService) { }
+  constructor(private scrapingService: ScrappingService) { }
 
   ngOnInit(): void {
-    this.userName = this.getNameByToken()
+    this.userName = this.getNameByToken();
   }
 
-  runScrapping(){
-    this.scrappingService.runScrapping().subscribe(
+  runProductScraping(): void{
+    this.scrapingService.runProductsScrapping().subscribe(
       response => {
-        console.log(response)
+        console.log(response);
       }
-    )
+    );
+  }
+
+  runAuthorsScraping(): void{
+    this.scrapingService.runAuthorsScrapping().subscribe(response => {
+      console.log(response);
+    });
   }
 
   getNameByToken(): string{
-    let decoded_token: any = this.getDecodeAccessToken(this.getToken())
-    return decoded_token.names
+    const decodeAccessToken: any = this.getDecodeAccessToken(this.getToken());
+    return decodeAccessToken.names;
   }
 
-  getDecodeAccessToken(token: string):any{
+  getDecodeAccessToken(token: string): any {
     try{
-      return jwt_decode(token)
+      return jwtDecode(token);
     }
     catch (Error){
       return null;
     }
   }
 
-  getToken(){
-    return JSON.parse(localStorage.getItem("token_user"))
+  getToken(): any {
+    return JSON.parse(localStorage.getItem('token_user'));
   }
-
 }
