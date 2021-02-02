@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { ProductDefinitionService } from 'src/app/core/services/product/product-definition.service';
 
 @Component({
@@ -20,21 +19,21 @@ export class ProductsFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.buildForm()
+    this.buildForm();
   }
 
-  private buildForm(){
+  private buildForm(): void {
     this.form = this.formBuilder.group({
       'name': ['', Validators.required],
       'definition': ['', Validators.required]
-    })
+    });
   }
 
-  registerProduct(event:Event){
+  registerProduct(event: Event): void {
     event.preventDefault();
-    if(this.form.valid){
-      this.productService.newProduct(this.form.value).subscribe()
-      this.router.navigate(['/admin/collector-configuration/products-result'])
+    if (this.form.valid) {
+      this.productService.newProduct(this.form.value).subscribe();
+      this.router.navigate(['/admin/collector-configuration/products-result']);
     }
   }
 

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GruplacFormComponent } from "./components/gruplac-form/gruplac-form.component";
-import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.component";
-import { ProductsFormComponent } from "./components/products-form/products-form.component";
+import { GruplacFormComponent } from './components/gruplac-form/gruplac-form.component';
+import { AdminLayoutComponent } from './components/admin-layout/admin-layout.component';
+import { ProductsFormComponent } from './components/products-form/products-form.component';
 import { GruplacTableComponent } from './components/gruplac-table/gruplac-table.component';
 import { GruplacEditComponent } from './components/gruplac-edit/gruplac-edit.component';
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { ProductsEditComponent } from './components/products-edit/products-edit.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
-import { AuthGuard } from "./../core/guards/auth.guard";
+import { AuthGuard } from './../core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -36,7 +36,7 @@ const routes: Routes = [
             component: GruplacEditComponent
           },
           {
-            path: 'products',
+            path: 'products-result',
             component: ProductsTableComponent
           },
           {
