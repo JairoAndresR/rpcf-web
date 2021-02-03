@@ -14,7 +14,8 @@ import { BarchartAuthorsAndProductsComponent } from './components/barchart/barch
 import { BarchartGroupAndProductsComponent } from './components/barchart/barchart-group-and-products/barchart-group-and-products.component';
 import { ProductResultComponent } from './components/products-result/product-result.component';
 import {FormsModule} from '@angular/forms';
-import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { GroupReportSelectorComponent } from './components/group-report-selector/group-report-selector.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
       SearchFormComponent,
       BarchartAuthorsAndProductsComponent,
       BarchartGroupAndProductsComponent,
-      ProductResultComponent],
+      ProductResultComponent,
+      GroupReportSelectorComponent],
     imports: [
         CommonModule,
         AnalysisRoutingModule,

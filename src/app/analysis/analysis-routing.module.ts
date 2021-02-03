@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { HomeComponent } from "./components/home/home.component";
-import { SearchFormComponent } from "./components/search-form/search-form.component";
+import { HomeComponent } from './components/home/home.component';
+import { SearchFormComponent } from './components/search-form/search-form.component';
+import { GroupReportSelectorComponent } from './components/group-report-selector/group-report-selector.component';
 
 const routes: Routes = [
   {
@@ -12,6 +12,10 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchFormComponent
+  },
+  {
+    path: 'reports',
+    component: GroupReportSelectorComponent
   }
 ];
 
