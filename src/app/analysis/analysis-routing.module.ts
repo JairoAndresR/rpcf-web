@@ -14,7 +14,7 @@ const routes: Routes = [
     component: SearchFormComponent
   },
   {
-    path: 'reports',
+    path: 'group-reports',
     component: GroupReportSelectorComponent
   }
 ];
