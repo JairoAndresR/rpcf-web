@@ -17,6 +17,7 @@ import {FormsModule} from '@angular/forms';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { GroupReportSelectorComponent } from './components/group-report-selector/group-report-selector.component';
 import { BarchartComponent } from './components/barchart/barchart/barchart.component';
+import { ProductivityComponent } from './components/barchart/productivity/productivity.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BarchartComponent } from './components/barchart/barchart/barchart.compo
       BarchartGroupAndProductsComponent,
       ProductResultComponent,
       GroupReportSelectorComponent,
-      BarchartComponent],
+      BarchartComponent,
+      ProductivityComponent],
     imports: [
         CommonModule,
         AnalysisRoutingModule,

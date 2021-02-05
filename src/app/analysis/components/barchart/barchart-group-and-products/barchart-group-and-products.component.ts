@@ -11,7 +11,7 @@ export class BarchartGroupAndProductsComponent implements OnInit, OnChanges {
   private svg;
   private margin = 40;
   private width = 300 - (this.margin * 2);
-  private height = 200 - (this.margin * 3);
+  private height = 300 - (this.margin * 3);
 
   ngOnInit(): void {
     this.createSvg();
@@ -52,7 +52,7 @@ export class BarchartGroupAndProductsComponent implements OnInit, OnChanges {
 
     // Create the Y-axis band scale
     const yAxis = d3.scaleLinear()
-      .domain([0, 40])
+      .domain([0, 270])
       .range([this.height, 0]);
 
     // Draw the Y-axis on the DOM

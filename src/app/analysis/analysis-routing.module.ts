@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { GroupReportSelectorComponent } from './components/group-report-selector/group-report-selector.component';
+import { ProductivityComponent } from './components/barchart/productivity/productivity.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,11 @@ const routes: Routes = [
   {
     path: 'group-reports',
     component: GroupReportSelectorComponent
-  }
+  },
+  {
+    path: 'productivity',
+    component: ProductivityComponent,
+  },
 ];
 
 @NgModule({
