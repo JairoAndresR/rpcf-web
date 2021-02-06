@@ -11,11 +11,28 @@ export class ProductReportService {
 
   constructor(private http: HttpClient) { }
 
-  countAllByGroups(thematic: string,
-                   idProductTypeSelected: string,
+  countAllByGroups(title: string,
+                   typeName: string,
                    idResearcherSelected: string,
                    startDate: string,
                    endDate: string): Observable<ReportResult[]> {
-    return this.http.get<ReportResult[]>(`${environment.url_api}/products/reports?groupType=group_name&tittle=${thematic}&productType${idProductTypeSelected}&researcher${idResearcherSelected}&startDate${startDate}&endDate${endDate}`);
+      let url = `${environment.url_api}/products/reports?groupType=group_name`;
+      if (title) {
+        url += `?tittle=${title}`;
+      }
+
+      if (typeName) {
+        url += `&typeName=${typeName}`;
+      }
+
+      if (startDate) {
+        url += `&startDate=${startDate}`;
+      }
+
+      if (endDate) {
+        url += `&endDate${endDate}`;
+      }
+
+      return this.http.get<ReportResult[]>(url);
   }
 }

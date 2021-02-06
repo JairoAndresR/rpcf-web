@@ -11,12 +11,38 @@ export class ProductSearchService {
 
   constructor(private http: HttpClient) { }
 
-  getAllProducts(thematic: string,
-                 idProductTypeSelected: string,
-                 idGruplacSelected: string,
-                 idResearcherSelected: string,
+  getAllProducts(title: string,
+                 typeName: string,
+                 groupLACCode: string,
                  startDate: string,
                  endDate: string): Observable<Product[]> {
-    return this.http.get<Product[]>(`${environment.url_api}/products?tittle=${thematic}&productType${idProductTypeSelected}&gruplac${idGruplacSelected}&researcher${idResearcherSelected}&startDate${startDate}&endDate${endDate}`);
+
+    let url = `${environment.url_api}/products`;
+    let params: any[] = [];
+    if (title) {
+      params.push( `tittle=${title}`);
+    }
+
+    if (groupLACCode) {
+      params.push(`groupCode=${groupLACCode}`);
+    }
+
+    if (typeName) {
+      params.push(`typeName=${typeName}`);
+    }
+
+    if (startDate) {
+      params.push(`startDate=${startDate}`);
+    }
+
+    if (endDate) {
+      params.push(`endDate${endDate}`);
+    }
+
+    if (params.length > 0) {
+      url += `?${params.join('$')}`;
+    }
+    console.log(url);
+    return this.http.get<Product[]>(url);
   }
 }
