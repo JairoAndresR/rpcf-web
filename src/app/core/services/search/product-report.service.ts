@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ReportResult } from '../../models/report-result.model';
 import {Observable} from 'rxjs';
+import {NewProductParams} from './product-params';
 
 @Injectable({
   providedIn: 'root'
@@ -13,24 +14,14 @@ export class ProductReportService {
 
   countAllByGroups(title: string,
                    typeName: string,
-                   idResearcherSelected: string,
+                   groupLACCode: string,
                    startDate: string,
                    endDate: string): Observable<ReportResult[]> {
       let url = `${environment.url_api}/products/reports?groupType=group_name`;
-      if (title) {
-        url += `?tittle=${title}`;
-      }
+      const params: any[] = NewProductParams(title, typeName, groupLACCode, startDate, endDate);
 
-      if (typeName) {
-        url += `&typeName=${typeName}`;
-      }
-
-      if (startDate) {
-        url += `&startDate=${startDate}`;
-      }
-
-      if (endDate) {
-        url += `&endDate${endDate}`;
+      if (params.length > 0) {
+          url += `&${params.join('&')}`;
       }
 
       return this.http.get<ReportResult[]>(url);

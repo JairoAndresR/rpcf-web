@@ -9,7 +9,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Tipo de producto</mat-label>
       <mat-select #productTypeSelected>
-        <mat-option *ngFor="let definition of productDefinitions" [value]="definition.id">
+        <mat-option *ngFor="let definition of productDefinitions" [value]="definition.name">
           {{definition.name}}
         </mat-option>
       </mat-select>
@@ -52,7 +52,13 @@
       <mat-datepicker #pick></mat-datepicker>
     </mat-form-field> 
 
-    <button (click)="captureData(temathic.value, productTypeSelected.value, groupSelected.value, researcherSelected.value, startDate.value, endDate.value)" mat-raised-button color="primary">Buscar</button>
+    <button (click)="captureData(
+    temathic.value,
+    productTypeSelected.value,
+    groupSelected.value,
+    researcherSelected.value,
+    startDate.value,
+    endDate.value)" mat-raised-button color="primary">Buscar</button>
 </mat-card>
 
 
