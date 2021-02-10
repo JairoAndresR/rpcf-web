@@ -10,8 +10,8 @@ export class ThematicByGroupService {
 
   constructor(private http: HttpClient) { }
 
-  getMostWorkedThematics(selectedGroupLacCode){
-    return this.http.get<ThematicByGroup>(`${environment.url_api}/themathics?groupCode=${selectedGroupLacCode}`);
+  getMostWorkedThematics(selectedGroupLacName){
+    return this.http.get<ThematicByGroup>(`${environment.url_api}/products/reports/words-frequencies?groupName=${selectedGroupLacName}`);
   }
 
 }

@@ -1,38 +1,35 @@
-import {Component, Input, OnInit} from '@angular/core';
-import * as d3 from "d3";
+import {Component, Input, OnInit, OnChanges} from '@angular/core';
+import * as d3 from 'd3';
 
 @Component({
   selector: 'app-barchart',
   templateUrl: './barchart.component.html',
   styleUrls: ['./barchart.component.css']
 })
-export class BarchartComponent implements OnInit {
+export class BarchartComponent implements OnInit, OnChanges {
 
-  // @Input() mostWorkedThematics;
-  mostWorkedThematics = [
-      {word:'inteligencia', weight: '40'},
-      {word:'datos', weight: '32'},
-      {word:'arificial', weight: '30'},
-      {word:'digitales', weight: '25'},
-      {word:'sistema', weight: '22'},
-      {word:'sistema', weight: '15'},
-      {word:'sistema', weight: '14'},
-      {word:'redes', weight: '10'},
-      {word:'energía', weight: '5'},
-      {word:'aprendizaje', weight: '1'},];
+  @Input() thematicsList;
 
-
-private svg;
+  private svg;
+  private thematicsSubList = [];
+  private maxProducts = 0;
   private margin = 40;
   private width = 400 - (this.margin * 2);
   private height = 400 - (this.margin * 3);
 
   ngOnInit(): void {
-    this.createSvg();
-    this.drawBars(this.mostWorkedThematics);
+      this.createSvg();
+      this.drawBars(this.thematicsSubList);
   }
 
-  private createSvg(): void {
+  ngOnChanges(): void {
+      this.thematicsSubList = this.thematicsList.slice(0, 9 + 1);
+      this.maxProducts = Math.max.apply(Math, this.thematicsSubList.map((o) => o.count));
+      this.drawBars(this.thematicsSubList);
+      console.log(this.thematicsSubList);
+  }
+
+    private createSvg(): void {
     this.svg = d3.select('figure#barGroupThematics')
         .append('svg')
         .attr('width', this.width + (this.margin * 2))
@@ -41,15 +38,18 @@ private svg;
         .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
   }
 
-  private drawBars(mostWorkedThematics: any[]): void {
-    // Create the X-axis band scale
-    const x = d3.scaleBand()
+  private drawBars(thematicsSubList: any[]): void {
+      if (thematicsSubList.length === 0) {
+          return;
+      }
+      // Create the X-axis band scale
+      const x = d3.scaleBand()
         .range([0, this.width])
-        .domain(mostWorkedThematics.map(d => d.word))
+        .domain(thematicsSubList.map(d => d.value))
         .padding(0.2);
 
     // Draw the X-axis on the DOM
-    this.svg.append('g')
+      this.svg.append('g')
         .attr('transform', 'translate(0,' + this.height + ')')
         .call(d3.axisBottom(x))
         .selectAll('text')
@@ -57,23 +57,23 @@ private svg;
         .style('text-anchor', 'end');
 
     // Create the Y-axis band scale
-    const y = d3.scaleLinear()
-        .domain([0, 50])
+      const y = d3.scaleLinear()
+        .domain([0, this.maxProducts + (this.maxProducts * 0.1)])
         .range([this.height, 0]);
 
     // Draw the Y-axis on the DOM
-    this.svg.append('g')
+      this.svg.append('g')
         .call(d3.axisLeft(y));
 
     // Create and fill the bars
-    this.svg.selectAll('bars')
-        .data(mostWorkedThematics)
+      this.svg.selectAll('bars')
+        .data(thematicsSubList)
         .enter()
         .append('rect')
-        .attr('x', d => x(d.word))
-        .attr('y', d => Number(y(d.weight)))
+        .attr('x', d => x(d.value))
+        .attr('y', d => y(d.count))
         .attr('width', x.bandwidth())
-        .attr('height', (d) => this.height - Number(y(d.weight)))
+        .attr('height', (d) => this.height - (y(d.count)))
         .attr('fill', '#2E46D8');
   }
 }

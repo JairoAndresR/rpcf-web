@@ -1,4 +1,4 @@
 export interface ThematicByGroup {
-    word: string,
-    weight: string
+    value: string,
+    count: number
 }

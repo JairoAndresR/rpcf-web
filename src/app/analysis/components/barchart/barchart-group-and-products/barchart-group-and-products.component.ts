@@ -9,6 +9,7 @@ import * as d3 from 'd3';
 export class BarchartGroupAndProductsComponent implements OnInit, OnChanges {
   @Input() reportList;
   private svg;
+  private maxProducts = 10;
   private margin = 40;
   private width = 300 - (this.margin * 2);
   private height = 300 - (this.margin * 3);
@@ -19,6 +20,7 @@ export class BarchartGroupAndProductsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
+    this.maxProducts = Math.max.apply(Math, this.reportList.map((o) => o.count));
     this.drawBars(this.reportList);
   }
 
@@ -52,7 +54,7 @@ export class BarchartGroupAndProductsComponent implements OnInit, OnChanges {
 
     // Create the Y-axis band scale
     const yAxis = d3.scaleLinear()
-      .domain([0, 270])
+      .domain([0, this.maxProducts+(this.maxProducts * 0.1)])
       .range([this.height, 0]);
 
     // Draw the Y-axis on the DOM

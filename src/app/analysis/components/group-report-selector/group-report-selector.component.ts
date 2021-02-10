@@ -11,8 +11,9 @@ import { ThematicByGroup } from '../../../core/models/thematic-by-group';
 })
 export class GroupReportSelectorComponent implements OnInit {
   gruplacDefinitions: Gruplac[] = [];
-  selectedGroupLacCode: string;
+  selectedGroupLacName: string;
   mostWorkedThematicsByGroups: ThematicByGroup[] = [];
+  diplayGraphics = false;
   constructor(private gruplacService: GruplacService,
               private thematicByGroupService: ThematicByGroupService,
               ) { }
@@ -26,10 +27,12 @@ export class GroupReportSelectorComponent implements OnInit {
     });
   }
 
-  captureData(idGruplacSelected): void {
-    console.log(idGruplacSelected);
-    this.thematicByGroupService.getMostWorkedThematics(this.selectedGroupLacCode).subscribe( thematicsByGroup => {
-      this.mostWorkedThematicsByGroups = thematicsByGroup['thematics'];
+  captureData(selectedGroupLacCode): void {
+    console.log(selectedGroupLacCode);
+    this.thematicByGroupService.getMostWorkedThematics(this.selectedGroupLacName).subscribe( thematicsByGroup => {
+    this.mostWorkedThematicsByGroups = thematicsByGroup['reports'];
+    console.log(this.mostWorkedThematicsByGroups);
+    this.diplayGraphics = true;
     });
   }
 }

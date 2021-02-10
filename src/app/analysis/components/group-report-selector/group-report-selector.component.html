@@ -2,12 +2,14 @@
     <h1>Reporte general: Temáticas más trabajadas por grupo de investigación</h1>
     <mat-form-field appearance="fill">
         <mat-label>Grupo de inv.</mat-label>
-        <mat-select [(value)]="selectedGroupLacCode"  #groupSelected>
-            <mat-option *ngFor="let definition of gruplacDefinitions" [value]="definition.code">
+        <mat-select [(value)]="selectedGroupLacName"  #groupSelected>
+            <mat-option *ngFor="let definition of gruplacDefinitions" [value]="definition.name">
                 {{definition.name}}
             </mat-option>
         </mat-select>
     </mat-form-field>
     <button (click)="captureData(groupSelected.value)" mat-raised-button color="primary">Consultar</button>
 </mat-card>
-<app-barchart></app-barchart>
+<div id="graph-render" *ngIf="diplayGraphics">
+    <app-barchart [thematicsList]="mostWorkedThematicsByGroups" ></app-barchart>
+</div>
