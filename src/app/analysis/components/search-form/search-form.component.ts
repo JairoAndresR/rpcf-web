@@ -45,7 +45,7 @@ export class SearchFormComponent implements OnInit {
   }
   getGruplacsDefinitions(): void {
     this.gruplacService.getAllGruplacs().subscribe(gruplacDefinitions => {
-      this.gruplacDefinitions = gruplacDefinitions['definitions']
+      this.gruplacDefinitions = gruplacDefinitions['definitions'];
     });
   }
 

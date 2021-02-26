@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductivityService} from '../../../../core/services/productivity/productivity.service';
 import * as d3 from "d3";
 
 @Component({
@@ -9,21 +10,32 @@ import * as d3 from "d3";
 export class ProductivityComponent implements OnInit {
 
  // @Input() mostWorkedThematics;
-  mostWorkedThematics = [
-    {word:'Inv. Aplicada', weight: '270'},
-    {word:'Inv. Pura', weight: '0'},
-    {word:'Formacion', weight: '0'},
-    {word:'Consultoria', weight: '0'},];
+ // mostWorkedThematics = [
+ //   {word:'Inv. Aplicada', weight: '270'},
+ //   {word:'Inv. Pura', weight: '0'},
+ //   {word:'Formacion', weight: '0'},
+ //   {word:'Consultoria', weight: '0'},];
 
+  productivityReport: any;
 
   private svg;
   private margin = 40;
   private width = 400 - (this.margin * 2);
   private height = 400 - (this.margin * 3);
 
+  constructor(private productivityService: ProductivityService) {
+  }
+
   ngOnInit(): void {
+    this.getProductivityReport();
     this.createSvg();
-    this.drawBars(this.mostWorkedThematics);
+    this.drawBars(this.productivityReport);
+  }
+
+  getProductivityReport(): void {
+    this.productivityService.getProductivityClasification().subscribe(report => {
+      this.productivityReport = report;
+    });
   }
 
   private createSvg(): void {
@@ -35,11 +47,11 @@ export class ProductivityComponent implements OnInit {
         .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
   }
 
-  private drawBars(mostWorkedThematics: any[]): void {
+  private drawBars(productivityReport: any[]): void {
     // Create the X-axis band scale
     const x = d3.scaleBand()
         .range([0, this.width])
-        .domain(mostWorkedThematics.map(d => d.word))
+        .domain(productivityReport.map(d => d.word))
         .padding(0.2);
 
     // Draw the X-axis on the DOM
@@ -61,7 +73,7 @@ export class ProductivityComponent implements OnInit {
 
     // Create and fill the bars
     this.svg.selectAll('bars')
-        .data(mostWorkedThematics)
+        .data(productivityReport)
         .enter()
         .append('rect')
         .attr('x', d => x(d.word))
