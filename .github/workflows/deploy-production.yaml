@@ -40,6 +40,7 @@ jobs:
           host: ${{ secrets.PROD_SERVER_HOST }}
           username: ${{ secrets.PROD_SERVER_USERNAME }}
           key: ${{ secrets.PROD_SERVER_PRIVATE_KEY }}
+          port: ${{ secrets.PRO_SERVER_PORT }}
           source: "./deploy/*,./dist/*"
           target: "/opt/app/upload"
           strip_components: 1
