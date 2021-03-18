@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductivityService} from '../../../../core/services/productivity/productivity.service';
+import {ReportResult} from '../../../../core/models/report-result.model';
 import * as d3 from "d3";
 
 @Component({
@@ -16,7 +17,7 @@ export class ProductivityComponent implements OnInit {
  //   {word:'Formacion', weight: '0'},
  //   {word:'Consultoria', weight: '0'},];
 
-  productivityReport: any;
+  productivityReport: ReportResult[];
 
   private svg;
   private margin = 40;
@@ -28,6 +29,7 @@ export class ProductivityComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductivityReport();
+    console.log(this.productivityReport);
     this.createSvg();
     this.drawBars(this.productivityReport);
   }
@@ -35,6 +37,7 @@ export class ProductivityComponent implements OnInit {
   getProductivityReport(): void {
     this.productivityService.getProductivityClasification().subscribe(report => {
       this.productivityReport = report;
+      console.log(this.productivityReport);
     });
   }
 
@@ -51,7 +54,7 @@ export class ProductivityComponent implements OnInit {
     // Create the X-axis band scale
     const x = d3.scaleBand()
         .range([0, this.width])
-        .domain(productivityReport.map(d => d.word))
+        .domain(productivityReport.map(d => d.value))
         .padding(0.2);
 
     // Draw the X-axis on the DOM
@@ -76,10 +79,10 @@ export class ProductivityComponent implements OnInit {
         .data(productivityReport)
         .enter()
         .append('rect')
-        .attr('x', d => x(d.word))
-        .attr('y', d => Number(y(d.weight)))
+        .attr('x', d => x(d.value))
+        .attr('y', d => Number(y(d.count)))
         .attr('width', x.bandwidth())
-        .attr('height', (d) => this.height - Number(y(d.weight)))
+        .attr('height', (d) => this.height - Number(y(d.count)))
         .attr('fill', '#2E46D8');
   }
 

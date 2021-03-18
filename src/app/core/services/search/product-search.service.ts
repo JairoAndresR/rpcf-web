@@ -20,3 +20,4 @@ export class ProductSearchService {
     return this.http.get<Product[]>(`${environment.url_api}/products?tittle=${thematic}&productType${idProductTypeSelected}&gruplac${idGruplacSelected}&researcher${idResearcherSelected}&startDate${startDate}&endDate${endDate}`);
   }
 }
+  
