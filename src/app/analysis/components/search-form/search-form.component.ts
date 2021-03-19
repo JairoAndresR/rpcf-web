@@ -62,26 +62,29 @@ export class SearchFormComponent implements OnInit {
   }
 
   /* Capture data will send data to the backend to realize the search of products-result with these characteristics */
-  captureData(thematic, idProductTypeSelected, idGruplacSelected, idResearcherSelected,
+  captureData(thematic, productName, groupLACCode, idResearcherSelected,
               startDate, endDate): void {
 
     console.log(thematic);
-    console.log(idProductTypeSelected);
-    console.log(idGruplacSelected);
+    console.log(productName);
+    console.log(groupLACCode);
     console.log(idResearcherSelected);
     console.log(startDate);
     console.log(endDate);
 
 
-    this.searchService.getAllProducts(thematic,
-        idProductTypeSelected, idGruplacSelected,
-        idResearcherSelected, startDate, endDate).subscribe(resultsAdvancedSearch => {
+    this.searchService.getAllProducts(
+        thematic,
+        productName,
+        groupLACCode,
+        startDate,
+        endDate).subscribe(resultsAdvancedSearch => {
+      console.log(resultsAdvancedSearch);
       this.products = resultsAdvancedSearch['products'];
-
     });
 
     this.groupProductService.countAllByGroups(thematic,
-        idProductTypeSelected, idResearcherSelected, startDate, endDate).subscribe(gruplacProductsQuery => {
+        productName, idResearcherSelected, startDate, endDate).subscribe(gruplacProductsQuery => {
           console.log(gruplacProductsQuery);
       this.gruplacProductsQueryList = gruplacProductsQuery['reports'];
     });
