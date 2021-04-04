@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import {ProductivityService} from '../../../../core/services/productivity/productivity.service';
-import {ReportResult} from '../../../../core/models/report-result.model';
-import * as d3 from "d3";
+import * as d3 from 'd3';
 
 @Component({
   selector: 'app-productivity',
   templateUrl: './productivity.component.html',
   styleUrls: ['./productivity.component.css']
 })
-export class ProductivityComponent implements OnInit {
+export class ProductivityComponent implements OnInit, OnChanges {
 
  // @Input() mostWorkedThematics;
  // mostWorkedThematics = [
@@ -17,8 +16,10 @@ export class ProductivityComponent implements OnInit {
  //   {word:'Formacion', weight: '0'},
  //   {word:'Consultoria', weight: '0'},];
 
-  productivityReport: ReportResult[];
+  // productivityReport: ReportResult[];
+  @Input() productivityReport;
 
+  private productivitySublist = [];
   private svg;
   private margin = 40;
   private width = 400 - (this.margin * 2);
@@ -28,19 +29,30 @@ export class ProductivityComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProductivityReport();
     console.log(this.productivityReport);
     this.createSvg();
-    this.drawBars(this.productivityReport);
+    this.drawBars(this.productivitySublist);
   }
 
-  getProductivityReport(): void {
-    this.productivityService.getProductivityClasification().subscribe(report => {
-      this.productivityReport = report;
-      console.log(this.productivityReport);
-    });
+  ngOnChanges(): void {
+    this.productivitySublist = this.productivitySublist;
+    this.drawBars(this.productivitySublist);
+    console.log(this.productivitySublist);
   }
 
+  // getProductivityReport(): void {
+  //   this.productivityService.getProductivityClasification().subscribe(report => {
+  //     this.setProductivityReport(report);
+  //     this.createSvg();
+  //     console.log(this.productivityReport);
+  //     this.drawBars(this.productivityReport);
+  //   });
+  // }
+
+  // private setProductivityReport(productivity: ReportResult[]): void
+  // {
+  //   this.productivityReport = productivity;
+  // }
   private createSvg(): void {
     this.svg = d3.select('figure#productivity')
         .append('svg')

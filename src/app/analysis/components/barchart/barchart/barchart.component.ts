@@ -18,6 +18,7 @@ export class BarchartComponent implements OnInit, OnChanges {
   private height = 400 - (this.margin * 3);
 
   ngOnInit(): void {
+      console.log(this.thematicsList);
       this.createSvg();
       this.drawBars(this.thematicsSubList);
   }

@@ -18,6 +18,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { GroupReportSelectorComponent } from './components/group-report-selector/group-report-selector.component';
 import { BarchartComponent } from './components/barchart/barchart/barchart.component';
 import { ProductivityComponent } from './components/barchart/productivity/productivity.component';
+import { ProductivityContainerComponent } from './components/productivity-container/productivity-container.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProductivityComponent } from './components/barchart/productivity/produc
       ProductResultComponent,
       GroupReportSelectorComponent,
       BarchartComponent,
-      ProductivityComponent],
+      ProductivityComponent,
+      ProductivityContainerComponent],
     imports: [
         CommonModule,
         AnalysisRoutingModule,
