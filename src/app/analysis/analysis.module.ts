@@ -7,7 +7,7 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatNativeDateModule} from '@angular/material/core'; 
+import { MatNativeDateModule} from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button';
 import { BarchartAuthorsAndProductsComponent } from './components/barchart/barchart-authors-and-products/barchart-authors-and-products.component';
@@ -19,6 +19,8 @@ import { GroupReportSelectorComponent } from './components/group-report-selector
 import { BarchartComponent } from './components/barchart/barchart/barchart.component';
 import { ProductivityComponent } from './components/barchart/productivity/productivity.component';
 import { ProductivityContainerComponent } from './components/productivity-container/productivity-container.component';
+import { WordcloudComponent } from './components/wordcloud/wordcloud.component';
+import {TagCloudModule} from "angular-tag-cloud-module";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { ProductivityContainerComponent } from './components/productivity-contai
       GroupReportSelectorComponent,
       BarchartComponent,
       ProductivityComponent,
-      ProductivityContainerComponent],
+      ProductivityContainerComponent,
+      WordcloudComponent],
     imports: [
         CommonModule,
         AnalysisRoutingModule,
@@ -41,7 +44,8 @@ import { ProductivityContainerComponent } from './components/productivity-contai
         MatDatepickerModule,
         MatButtonModule,
         FormsModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        TagCloudModule
     ]
 })
 export class AnalysisModule { }

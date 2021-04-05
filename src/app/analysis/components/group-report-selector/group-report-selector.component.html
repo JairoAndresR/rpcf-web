@@ -11,5 +11,6 @@
     <button (click)="captureData(groupSelected.value)" mat-raised-button color="primary">Consultar</button>
 </mat-card>
 <div id="graph-render" *ngIf="diplayGraphics">
-    <app-barchart [thematicsList]="mostWorkedThematicsByGroups" ></app-barchart>
+    <app-barchart [thematicsList]="mostWorkedThematicsByGroups"></app-barchart>
+    <app-cloud [thematicsList]="mostWorkedThematicsByGroups"></app-cloud>
 </div>
