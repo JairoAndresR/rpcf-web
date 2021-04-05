@@ -40,6 +40,7 @@ export class BarchartComponent implements OnInit, OnChanges {
   }
 
   private drawBars(thematicsSubList: any[]): void {
+      console.log(thematicsSubList);
       if (thematicsSubList.length === 0) {
           return;
       }

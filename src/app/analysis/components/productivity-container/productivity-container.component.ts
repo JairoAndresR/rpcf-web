@@ -8,19 +8,21 @@ import { ReportResult } from '../../../core/models/report-result.model';
   styleUrls: ['./productivity-container.component.css']
 })
 export class ProductivityContainerComponent implements OnInit {
-  productivityReport: ReportResult[] = [];
+  productivityReport: any;
 
   constructor(private productivityService: ProductivityService) { }
 
   ngOnInit(): void {
-    this.getProductivityReport();
+    // this.getProductivityReport();
+    this.productivityReport = this.productivityService;
   }
 
   getProductivityReport(): void {
     this.productivityService.getProductivityClasification().subscribe(report => {
       this.productivityReport = report;
+      console.log(this.productivityReport);
     });
-    console.log(this.productivityReport);
+
   }
 
 }
