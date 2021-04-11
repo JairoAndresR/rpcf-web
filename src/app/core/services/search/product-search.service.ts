@@ -28,4 +28,3 @@ export class ProductSearchService {
     return this.http.get<Product[]>(url);
   }
 }
-  

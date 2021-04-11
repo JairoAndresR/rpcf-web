@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { GroupReportSelectorComponent } from './components/group-report-selector/group-report-selector.component';
 import { ProductivityContainerComponent } from './components/productivity-container/productivity-container.component';
+import { ResearcherSelectorComponent } from './components/researcher-selector/researcher-selector.component';
 // import { ProductivityComponent } from './components/barchart/productivity/productivity.component';
 
 
@@ -24,6 +25,10 @@ const routes: Routes = [
     path: 'productivity',
     component: ProductivityContainerComponent,
   },
+  {
+    path: 'researcher-reports',
+    component: ResearcherSelectorComponent,
+  }
 ];
 
 @NgModule({

@@ -21,6 +21,7 @@ import { ProductivityComponent } from './components/barchart/productivity/produc
 import { ProductivityContainerComponent } from './components/productivity-container/productivity-container.component';
 import { WordcloudComponent } from './components/wordcloud/wordcloud.component';
 import {TagCloudModule} from "angular-tag-cloud-module";
+import { ResearcherSelectorComponent } from './components/researcher-selector/researcher-selector.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {TagCloudModule} from "angular-tag-cloud-module";
       BarchartComponent,
       ProductivityComponent,
       ProductivityContainerComponent,
-      WordcloudComponent],
+      WordcloudComponent,
+      ResearcherSelectorComponent],
     imports: [
         CommonModule,
         AnalysisRoutingModule,

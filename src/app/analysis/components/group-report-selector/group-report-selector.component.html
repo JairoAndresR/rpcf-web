@@ -10,7 +10,11 @@
     </mat-form-field>
     <button (click)="captureData(groupSelected.value)" mat-raised-button color="primary">Consultar</button>
 </mat-card>
-<div id="graph-render" *ngIf="diplayGraphics">
-    <app-barchart [thematicsList]="mostWorkedThematicsByGroups"></app-barchart>
-    <app-cloud [thematicsList]="mostWorkedThematicsByGroups"></app-cloud>
+<div class=" mt-4 row" id="graph-render" *ngIf="diplayGraphics" >
+    <div class = " col-4 barchart">
+        <app-barchart [thematicsList]="mostWorkedThematicsByGroups"></app-barchart>
+    </div>
+    <div class = " col-3 wordcloud">
+        <app-cloud [thematicsList]="mostWorkedThematicsByGroups"></app-cloud>
+    </div>
 </div>

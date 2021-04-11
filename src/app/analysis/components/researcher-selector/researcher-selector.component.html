@@ -1,0 +1,32 @@
+<mat-card class="search-card">
+    <h1>Reporte general: Temáticas más trabajadas por investigador</h1>
+    <mat-form-field appearance="fill">
+        <mat-label>Grupo de inv.</mat-label>
+        <mat-select [(value)]="selectedGroupLacCode"  #groupSelected (selectionChange)="onChangeGroup()">
+            <mat-option *ngFor="let definition of gruplacDefinitions" [value]="definition.code">
+                {{definition.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- RESEARCHERS    -->
+    <mat-form-field appearance="fill">
+        <mat-label>Investigador</mat-label>
+        <mat-select [disabled]=disableResearchers #researcherSelected>
+            <mat-option *ngFor="let researcher of researchers" [value]="researcher.id">
+                {{researcher.names}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button (click)="captureData(groupSelected.value)" mat-raised-button color="primary">Consultar</button>
+</mat-card>
+<div class=" mt-4 row" id="graph-render" *ngIf="diplayGraphics" >
+    <div class = " col-4 barchart">
+        <app-barchart [thematicsList]="mostWorkedThematicsByResearcher"></app-barchart>
+    </div>
+    <div class = " col-3 wordcloud">
+        <app-cloud [thematicsList]="mostWorkedThematicsByResearcher"></app-cloud>
+    </div>
+</div>
+
+

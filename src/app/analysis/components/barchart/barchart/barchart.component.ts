@@ -24,6 +24,8 @@ export class BarchartComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
+      console.log("hola");
+      console.log(this.thematicsList);
       this.thematicsSubList = this.thematicsList.slice(0, 9 + 1);
       this.maxProducts = Math.max.apply(Math, this.thematicsSubList.map((o) => o.count));
       this.drawBars(this.thematicsSubList);

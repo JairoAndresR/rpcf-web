@@ -15,12 +15,12 @@ export class ProductivityComponent implements OnInit {
     //   {word:'Inv. Pura', weight: '0'},
     //   {word:'Formacion', weight: '0'},
     //   {word:'Consultoria', weight: '0'},];
-
     // productivityReport: ReportResult[];
     @Input() productivityReport;
 
     private productivitySublist = [];
     private svg;
+    private maxProducts = 0;
     private margin = 40;
     private width = 400 - (this.margin * 2);
     private height = 400 - (this.margin * 3);
@@ -29,14 +29,11 @@ export class ProductivityComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // setTimeout(() => {console.log(this.productivityReport); }, 500 );
-        // console.log(this.productivityReport);
-        // this.createSvg();
-        // this.drawBars(this.productivitySublist);
         this.productivityReport.getProductivityClasification().subscribe(report => {
-                this.createSvg();
-                console.log(report);
-                this.drawBars(report.reports);
+            this.maxProducts = Math.max.apply(Math, report.reports.map((o) => o.count));
+            this.createSvg();
+            console.log(report);
+            this.drawBars(report.reports);
             }
         );
     }
@@ -68,7 +65,7 @@ export class ProductivityComponent implements OnInit {
 
         // Create the Y-axis band scale
         const y = d3.scaleLinear()
-            .domain([0, 280])
+            .domain([0, this.maxProducts + (this.maxProducts * 0.1)])
             .range([this.height, 0]);
 
         // Draw the Y-axis on the DOM
@@ -86,5 +83,4 @@ export class ProductivityComponent implements OnInit {
             .attr('height', (d) => this.height - Number(y(d.count)))
             .attr('fill', '#2E46D8');
     }
-
 }
