@@ -24,7 +24,7 @@ export class BarchartComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-      console.log("hola");
+      console.log('hola');
       console.log(this.thematicsList);
       this.thematicsSubList = this.thematicsList.slice(0, 9 + 1);
       this.maxProducts = Math.max.apply(Math, this.thematicsSubList.map((o) => o.count));
@@ -71,13 +71,13 @@ export class BarchartComponent implements OnInit, OnChanges {
 
     // Create and fill the bars
       this.svg.selectAll('bars')
-        .data(thematicsSubList)
-        .enter()
-        .append('rect')
-        .attr('x', d => x(d.value))
-        .attr('y', d => y(d.count))
-        .attr('width', x.bandwidth())
-        .attr('height', (d) => this.height - (y(d.count)))
-        .attr('fill', '#2E46D8');
+          .data(thematicsSubList)
+          .enter()
+          .append('rect')
+          .attr('x', d => x(d.value))
+          .attr('y', d => y(d.count))
+          .attr('width', x.bandwidth())
+          .attr('height', (d) => this.height - (y(d.count)))
+          .attr('fill', '#2E46D8');
   }
 }
