@@ -3,11 +3,11 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { combineLatest } from 'rxjs';
 import { Gruplac } from '../../../core/models/gruplac.model';
-import { GruplacService } from '../../../core/services/gruplac/gruplac.service'
+import { GruplacService } from '../../../core/services/gruplac/gruplac.service';
 import { Researcher } from '../../../core/models/researcher.model';
-import { ResearcherService } from '../../../core/services/researcher/researcher.service'
+import { ResearcherService } from '../../../core/services/researcher/researcher.service';
 import { ProductDefinition } from '../../../core/models/product-definition.model';
-import { ProductDefinitionService } from '../../../core/services/product/product-definition.service'
+import { ProductDefinitionService } from '../../../core/services/product/product-definition.service';
 import { ReportResult } from '../../../core/models/report-result.model';
 import { researcherProductQuery } from '../../../core/models/researcher-product-query.model';
 import { ProductReportService } from '../../../core/services/search/product-report.service';
@@ -45,7 +45,7 @@ export class SearchFormComponent implements OnInit {
   }
   getGruplacsDefinitions(): void {
     this.gruplacService.getAllGruplacs().subscribe(gruplacDefinitions => {
-      this.gruplacDefinitions = gruplacDefinitions['definitions']
+      this.gruplacDefinitions = gruplacDefinitions['definitions'];
     });
   }
 

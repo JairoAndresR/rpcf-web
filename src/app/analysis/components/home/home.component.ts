@@ -9,22 +9,22 @@ import { ProductFactService } from "../../../core/services/product-fact/product-
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  totalGruplac: number = 0
-  totalProducts: number = 0
+  totalGruplac: number = 0;
+  totalProducts: number = 0;
   constructor(private gruplacDefinitionsService:GruplacService,
               private productFactService:ProductFactService) {
    }
 
   ngOnInit(): void {
-    this.getHomeNumbers()
+    this.getHomeNumbers();
   }
 
   getHomeNumbers(){
     this.gruplacDefinitionsService.getAllGruplacs().subscribe(homeInfo => {
-      this.totalGruplac=homeInfo["total"]     
+      this.totalGruplac=homeInfo["total"];
     });
     this.productFactService.getAllProducts().subscribe(producstInfo => {
-      this.totalProducts = producstInfo["total"]
+      this.totalProducts = producstInfo["total"];
     });
   }
 

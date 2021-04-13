@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { SearchFormComponent } from './components/search-form/search-form.component';
+import { GroupReportSelectorComponent } from './components/group-report-selector/group-report-selector.component';
+import { ProductivityContainerComponent } from './components/productivity-container/productivity-container.component';
+import { ResearcherSelectorComponent } from './components/researcher-selector/researcher-selector.component';
+// import { ProductivityComponent } from './components/barchart/productivity/productivity.component';
 
-import { HomeComponent } from "./components/home/home.component";
-import { SearchFormComponent } from "./components/search-form/search-form.component";
 
 const routes: Routes = [
   {
@@ -12,6 +16,18 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchFormComponent
+  },
+  {
+    path: 'group-reports',
+    component: GroupReportSelectorComponent
+  },
+  {
+    path: 'productivity',
+    component: ProductivityContainerComponent,
+  },
+  {
+    path: 'researcher-reports',
+    component: ResearcherSelectorComponent,
   }
 ];
 
