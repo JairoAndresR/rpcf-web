@@ -5,7 +5,7 @@
         <strong>Tipo producto: </strong><p>{{ product.typeName }}</p>
         <strong>Grupo: </strong><p>{{ product.groupName }}</p>
         <strong>Autor(es): </strong>
-            <p *ngFor="let author of product.authors"> {{ author }} </p> <br>
+            <p *ngFor="let author of product.authors"> {{ author.names }} </p> <br>
         <strong>Año:</strong> <p>{{ product.year }}</p>
     </mat-card>
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
