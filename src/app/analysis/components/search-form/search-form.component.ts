@@ -78,13 +78,14 @@ export class SearchFormComponent implements OnInit {
         productName,
         groupLACCode,
         startDate,
-        endDate).subscribe(resultsAdvancedSearch => {
+        endDate,
+        idResearcherSelected).subscribe(resultsAdvancedSearch => {
       console.log(resultsAdvancedSearch);
       this.products = resultsAdvancedSearch['products'];
     });
 
     this.groupProductService.countAllByGroups(thematic,
-        productName, idResearcherSelected, startDate, endDate).subscribe(gruplacProductsQuery => {
+        productName, idResearcherSelected, startDate, endDate, idResearcherSelected).subscribe(gruplacProductsQuery => {
           console.log(gruplacProductsQuery);
       this.gruplacProductsQueryList = gruplacProductsQuery['reports'];
     });

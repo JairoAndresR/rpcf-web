@@ -16,10 +16,11 @@ export class ProductSearchService {
                  typeName: string,
                  groupLACCode: string,
                  startDate: string,
-                 endDate: string): Observable<Product[]> {
+                 endDate: string,
+                 idResearcher: string): Observable<Product[]> {
 
     let url = `${environment.url_api}/products`;
-    const params: any[] = NewProductParams(title, typeName, groupLACCode, startDate, endDate);
+    const params: any[] = NewProductParams(title, typeName, groupLACCode, startDate, endDate, idResearcher);
 
     if (params.length > 0) {
       url += `?${params.join('&')}`;

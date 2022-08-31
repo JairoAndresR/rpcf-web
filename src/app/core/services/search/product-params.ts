@@ -1,6 +1,6 @@
 
 
- export function NewProductParams(title: string, typeName: string, groupLACCode: string,  startDate: string, endDate: string): any[]  {
+ export function NewProductParams(title: string, typeName: string, groupLACCode: string,  startDate: string, endDate: string, idResearcher: string): any[]  {
      const params: any[] = [];
 
      if (title) {
@@ -20,7 +20,11 @@
      }
 
      if (endDate) {
-         params.push(`endYear${endDate}`);
+         params.push(`endYear=${endDate}`);
+     }
+
+     if (idResearcher){
+        params.push(`researcherId=${idResearcher}`);
      }
 
      return params;

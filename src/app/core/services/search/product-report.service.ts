@@ -16,9 +16,10 @@ export class ProductReportService {
                    typeName: string,
                    groupLACCode: string,
                    startDate: string,
-                   endDate: string): Observable<ReportResult[]> {
+                   endDate: string,
+                   researcherId: string): Observable<ReportResult[]> {
       let url = `${environment.url_api}/products/reports?groupType=group_name`;
-      const params: any[] = NewProductParams(title, typeName, groupLACCode, startDate, endDate);
+      const params: any[] = NewProductParams(title, typeName, groupLACCode, startDate, endDate, researcherId);
 
       if (params.length > 0) {
           url += `&${params.join('&')}`;
