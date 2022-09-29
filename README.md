@@ -1,10 +1,16 @@
 # RpcfWeb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+## Requirements
+Install npm 
+
+Install project dependencies with `npm install` command on the project directory
+
+Install Angular CLI with `npm install -g @angular/cli@10.1.7`
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve -o` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
