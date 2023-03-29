@@ -34,6 +34,11 @@ export class BarchartGroupAndProductsComponent implements OnInit, OnChanges {
   }
 
   private drawBars(reportList: any[]): void {
+    // Elimina todas las barras antiguas
+    this.svg.selectAll('rect').remove();
+
+    // Limpia el objeto SVG
+    this.svg.selectAll('*').remove();
     if (reportList.length === 0) {
       return;
     }
