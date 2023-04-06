@@ -43,6 +43,10 @@ export class BarchartComponent implements OnInit, OnChanges {
 
   private drawBars(thematicsSubList: any[]): void {
       console.log(thematicsSubList);
+      // Elimina todas las barras antiguas
+      this.svg.selectAll('rect').remove();
+      // Limpia el objeto SVG
+      this.svg.selectAll('*').remove();
       if (thematicsSubList.length === 0) {
           return;
       }

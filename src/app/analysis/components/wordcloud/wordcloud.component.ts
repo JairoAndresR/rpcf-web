@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import {CloudData, CloudOptions} from 'angular-tag-cloud-module';
 
 
@@ -7,7 +7,7 @@ import {CloudData, CloudOptions} from 'angular-tag-cloud-module';
     templateUrl: './wordcloud.component.html',
     styleUrls: ['./wordcloud.component.css']
 })
-export class WordcloudComponent implements OnInit {
+export class WordcloudComponent implements OnChanges {
     @Input() thematicsList;
     options: CloudOptions = {
         // if width is between 0 and 1 it will be set to the width of the upper element multiplied by the value
@@ -17,21 +17,14 @@ export class WordcloudComponent implements OnInit {
         overflow: false,
     };
 
-    // data: CloudData[] = [
-    //   {text: 'Weight-8-link-color', weight: 28},
-    //   {text: 'Wdfnksd', weight: 38},
-    //   {text: 'Messirve', weight: 28},
-    //   {text: 'Holiwi', weight: 18},
-    //   {text: 'kakakaka', weight: 10},
-    //   {text: 'ola bola', weight: 5},
-    //   {text: 'Jelou', weight: 58},
-    // ];
-
     data: CloudData[] = [];
 
-    ngOnInit(): void {
-        for (let i = 0; i < 14; i++) {
-          this.data.push({text: this.thematicsList[i].value, weight: this.thematicsList[i].count});
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes.thematicsList && changes.thematicsList.currentValue) {
+            this.data = [];
+            for (let i = 0; i < 14 && i < changes.thematicsList.currentValue.length; i++) {
+                this.data.push({text: changes.thematicsList.currentValue[i].value, weight: changes.thematicsList.currentValue[i].count});
+            }
         }
     }
 }

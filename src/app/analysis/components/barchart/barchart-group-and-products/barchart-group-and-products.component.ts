@@ -2,7 +2,7 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
-  selector: 'app-barchart-group-and-products',
+  selector: ' app-barchart-group-and-products',
   templateUrl: './barchart-group-and-products.component.html',
   styleUrls: ['./barchart-group-and-products.component.css']
 })
