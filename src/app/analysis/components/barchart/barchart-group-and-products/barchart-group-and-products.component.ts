@@ -13,6 +13,7 @@ export class BarchartGroupAndProductsComponent implements OnInit, OnChanges {
   private margin = 40;
   private width = 300 - (this.margin * 2);
   private height = 300 - (this.margin * 3);
+  tooltip = null;
 
   ngOnInit(): void {
     this.createSvg();
@@ -31,6 +32,7 @@ export class BarchartGroupAndProductsComponent implements OnInit, OnChanges {
     .attr('height', this.height + (this.margin * 7.4))
     .append('g')
     .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
+    this.tooltip = d3.select('body').append('div').attr('class', 'tooltip').style('opacity', 0);
   }
 
   private drawBars(reportList: any[]): void {
@@ -76,6 +78,17 @@ export class BarchartGroupAndProductsComponent implements OnInit, OnChanges {
       .attr('width', xAxis.bandwidth())
       .attr('height', (report) => this.height - yAxis(report.count))
       .attr('fill', '#2E46D8');
+
+    this.svg.selectAll('rect')
+        .on('mouseover', (event, d) => {
+          this.tooltip.transition().duration(200).style('opacity', 0.9);
+          this.tooltip.html(d.count)
+              .style('left', (event.pageX + 10) + 'px')
+              .style('top', (event.pageY - 28) + 'px');
+        })
+        .on('mouseout', (event, d) => {
+          this.tooltip.transition().duration(500).style('opacity', 0);
+        });
   }
 
 }

@@ -36,7 +36,22 @@
       </mat-select>
     </mat-form-field>
 
-    <!-- STAR DATE    -->
+    <mat-form-field>
+        <mat-label>Seleccione año de inicio:</mat-label>
+        <mat-select [(ngModel)]="startDate">
+            <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Seleccione año de fin:</mat-label>
+        <mat-select [(ngModel)]="endDate">
+            <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+<!--
+    <picker></picker>
+    &lt;!&ndash; STAR DATE    &ndash;&gt;
     <mat-form-field appearance="fill" class="date-input">
       <mat-label>Fecha inicio de búsqueda</mat-label>
       <input matInput [matDatepicker]="picker" #startDate>
@@ -44,21 +59,21 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <!-- END DATE    -->
+    &lt;!&ndash; END DATE    &ndash;&gt;
     <mat-form-field appearance="fill" class="date-input">
       <mat-label>Fecha fin de búsqueda</mat-label>
       <input matInput [matDatepicker]="pick" #endDate>
       <mat-datepicker-toggle matSuffix [for]="pick"></mat-datepicker-toggle>
       <mat-datepicker #pick></mat-datepicker>
-    </mat-form-field> 
+    </mat-form-field> -->
 
     <button (click)="captureData(
     temathic.value,
     productTypeSelected.value,
     groupSelected.value,
     researcherSelected.value,
-    startDate.value,
-    endDate.value)" mat-raised-button color="primary">Buscar</button>
+    startDate,
+    endDate)" mat-raised-button color="primary">Buscar</button>
 </mat-card>
 
 

@@ -31,6 +31,9 @@ export class SearchFormComponent implements OnInit {
   displayGraphicsAndResults = false;
   selectedGroupLacCode: string;
   disableResearchers = true;
+  years = Array.from({length: (2023 - 1950)}, (_, i) => 2023 - i);
+  startDate: number;
+  endDate: number;
 
   constructor(private gruplacService: GruplacService,
               private researchService: ResearcherService,
